@@ -12,6 +12,7 @@ namespace Observasky.Models
         {
         }
 
+        public virtual DbSet<Articles> Articles { get; set; }
         public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Glossary> Glossary { get; set; }
         public virtual DbSet<Guests> Guests { get; set; }
