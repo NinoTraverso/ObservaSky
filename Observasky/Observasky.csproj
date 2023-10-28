@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202310261600294_InitDatabase.designer.cs">
       <DependentUpon>202310261600294_InitDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310281222273_GlossaryDescriptionWordNoLimit.cs" />
+    <Compile Include="Migrations\202310281222273_GlossaryDescriptionWordNoLimit.designer.cs">
+      <DependentUpon>202310281222273_GlossaryDescriptionWordNoLimit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\Events.cs" />
@@ -296,6 +300,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202310261600294_InitDatabase.resx">
       <DependentUpon>202310261600294_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310281222273_GlossaryDescriptionWordNoLimit.resx">
+      <DependentUpon>202310281222273_GlossaryDescriptionWordNoLimit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
