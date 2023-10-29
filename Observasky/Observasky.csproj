@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202310291424107_AddedEmailForUsers.designer.cs">
       <DependentUpon>202310291424107_AddedEmailForUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310291505416_AddedPHotoForUser.cs" />
+    <Compile Include="Migrations\202310291505416_AddedPHotoForUser.designer.cs">
+      <DependentUpon>202310291505416_AddedPHotoForUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\Events.cs" />
@@ -198,6 +202,7 @@
     <Compile Include="Models\Guests.cs" />
     <Compile Include="Models\Lectures.cs" />
     <Compile Include="Models\ModelDbContext.cs" />
+    <Compile Include="Models\SiteRole.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -219,6 +224,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\Blue_eye_icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -276,10 +282,12 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -317,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310291424107_AddedEmailForUsers.resx">
       <DependentUpon>202310291424107_AddedEmailForUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310291505416_AddedPHotoForUser.resx">
+      <DependentUpon>202310291505416_AddedPHotoForUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

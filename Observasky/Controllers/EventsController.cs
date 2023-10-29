@@ -53,7 +53,7 @@ namespace Observasky.Controllers
                 if (events.Image != null && events.Image.ContentLength > 0)
                 {
                     var image = Path.GetFileName(events.Image.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/images/"), image);
+                    var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
                     events.Image.SaveAs(path);
 
                     events.Photo = image;
@@ -90,7 +90,7 @@ namespace Observasky.Controllers
                 if (events.Image != null && events.Image.ContentLength > 0)
                 {
                     var image = Path.GetFileName(events.Image.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/images/"), image);
+                    var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
                     events.Image.SaveAs(path);
                     events.Photo = image; 
                 }

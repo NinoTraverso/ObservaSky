@@ -20,13 +20,29 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Teleport", "Index", "Help", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Glossary", "Create", "Glossary", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Info", "Create", "Glossary", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Astrogate", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+
+                    @if (User.IsInRole("Astronomer"))
+                    {
+                        <li>@Html.ActionLink("Lectures", "Index", "Lectures", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Events", "Index", "Events", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Glossary", "Index", "Glossary", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    else if (User.IsInRole("Stargazer"))
+                    {
+                        <li>@Html.ActionLink("Farmacia", "Index", "FARM", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    <li>@Html.ActionLink("Info", "Info", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
