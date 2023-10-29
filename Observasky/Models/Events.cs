@@ -5,6 +5,7 @@ namespace Observasky.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     public partial class Events
     {
@@ -13,6 +14,9 @@ namespace Observasky.Models
 
         [StringLength(50)]
         public string Name { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase Image { get; set; }
 
         [StringLength(255)]
         public string Photo { get; set; }
