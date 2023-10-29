@@ -14,13 +14,13 @@ namespace Observasky.Controllers
     {
         private ModelDbContext db = new ModelDbContext();
 
-        // GET: Glossary
+        [HttpGet]
         public ActionResult Index()
         {
             return View(db.Glossary.ToList());
         }
 
-        // GET: Glossary/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,15 +35,13 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
-        // GET: Glossary/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Glossary/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdGlossary,Name,Description")] Glossary glossary)
@@ -58,7 +56,7 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
-        // GET: Glossary/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,9 +71,6 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
-        // POST: Glossary/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdGlossary,Name,Description")] Glossary glossary)
@@ -89,7 +84,7 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
-        // GET: Glossary/Delete/5
+        [HttpGet]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +99,7 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
-        // POST: Glossary/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
