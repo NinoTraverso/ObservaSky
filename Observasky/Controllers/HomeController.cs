@@ -12,13 +12,15 @@ namespace Observasky.Controllers
     public class HomeController : Controller
     {
         private ModelDbContext db = new ModelDbContext();
+
+        // -------------------------------------------------------------------------------  INDEX  --------------------------------------  //
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
 
             return View();
         }
-
+        // -------------------------------------------------------------------------------  REGISTER  --------------------------------------  //
         [HttpGet]
         public ActionResult Register()
         {
@@ -48,7 +50,7 @@ namespace Observasky.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        // -------------------------------------------------------------------------------  LOGIN  --------------------------------------  //
         [HttpGet]
         public ActionResult Login()
         {
@@ -72,7 +74,7 @@ namespace Observasky.Controllers
 
             return View();
         }
-
+        // -------------------------------------------------------------------------------  LOGOUT  --------------------------------------  //
         public ActionResult Logout()
         {
 
@@ -81,16 +83,12 @@ namespace Observasky.Controllers
             return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult InsertChipCode()
-        {
-            return View();
-        }
-
-
+        // -------------------------------------------------------------------------------  INFO  --------------------------------------  //
         [HttpGet]
         public ActionResult Info()
         {
             return View();
         }
+
     }
 }

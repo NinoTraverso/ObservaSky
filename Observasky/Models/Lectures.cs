@@ -5,6 +5,7 @@ namespace Observasky.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     public partial class Lectures
     {
@@ -22,8 +23,10 @@ namespace Observasky.Models
 
         public DateTime? DateTime { get; set; }
 
-        [StringLength(200)]
         public string Description { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase Image { get; set; }
 
         [StringLength(255)]
         public string Photo { get; set; }

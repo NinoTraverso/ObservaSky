@@ -176,6 +176,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GlossaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LecturesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +195,10 @@
     <Compile Include="Migrations\202310291505416_AddedPHotoForUser.cs" />
     <Compile Include="Migrations\202310291505416_AddedPHotoForUser.designer.cs">
       <DependentUpon>202310291505416_AddedPHotoForUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310292245374_NoLimitsToLectureDescriptionLength.cs" />
+    <Compile Include="Migrations\202310292245374_NoLimitsToLectureDescriptionLength.designer.cs">
+      <DependentUpon>202310292245374_NoLimitsToLectureDescriptionLength.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
@@ -285,6 +290,11 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Info.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Lectures\Create.cshtml" />
+    <Content Include="Views\Lectures\Delete.cshtml" />
+    <Content Include="Views\Lectures\Details.cshtml" />
+    <Content Include="Views\Lectures\Edit.cshtml" />
+    <Content Include="Views\Lectures\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310291505416_AddedPHotoForUser.resx">
       <DependentUpon>202310291505416_AddedPHotoForUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310292245374_NoLimitsToLectureDescriptionLength.resx">
+      <DependentUpon>202310292245374_NoLimitsToLectureDescriptionLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
