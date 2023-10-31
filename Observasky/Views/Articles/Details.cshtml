@@ -1,0 +1,74 @@
+﻿@model Observasky.Models.Articles
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Articles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <img src="~/Content/Images/@Model.Photo" alt="Event Image" width="200" height="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Main)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Main)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conclusions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conclusions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdArticle }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

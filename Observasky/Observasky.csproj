@@ -173,6 +173,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GlossaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -298,6 +299,14 @@
     <Content Include="Views\Lectures\Details.cshtml" />
     <Content Include="Views\Lectures\Edit.cshtml" />
     <Content Include="Views\Lectures\Index.cshtml" />
+    <Content Include="Views\Home\AddAstronomer.cshtml" />
+    <Content Include="Views\Home\Members.cshtml" />
+    <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Articles\Create.cshtml" />
+    <Content Include="Views\Articles\Delete.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
+    <Content Include="Views\Articles\Edit.cshtml" />
+    <Content Include="Views\Articles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

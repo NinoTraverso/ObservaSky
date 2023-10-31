@@ -1,0 +1,50 @@
+﻿@model Observasky.Models.Users
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <img src="~/Content/Images/@Model.Photo" alt="Event Image" width="200" height="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modify", "ModifyProfile", new { id = Model.IdUser }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

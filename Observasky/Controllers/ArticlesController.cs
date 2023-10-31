@@ -11,30 +11,31 @@ using Observasky.Models;
 
 namespace Observasky.Controllers
 {
-    public class EventsController : Controller
+    public class ArticlesController : Controller
     {
         private ModelDbContext db = new ModelDbContext();
 
-        [HttpGet]
+
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Articles.ToList());
         }
 
-        [HttpGet]
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
-            if (events == null)
+            Articles articles = db.Articles.Find(id);
+            if (articles == null)
             {
                 return HttpNotFound();
             }
-            return View(events);
+            return View(articles);
         }
+
 
         [HttpGet]
         public ActionResult Create()
@@ -45,20 +46,20 @@ namespace Observasky.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Events events)
+        public ActionResult Create(Articles articles)
         {
-            events.Photo = "";
+            articles.Photo = "";
             if (ModelState.IsValid)
             {
-                if (events.Image != null && events.Image.ContentLength > 0)
+                if (articles.Image != null && articles.Image.ContentLength > 0)
                 {
-                    var image = Path.GetFileName(events.Image.FileName);
+                    var image = Path.GetFileName(articles.Image.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
-                    events.Image.SaveAs(path);
+                    articles.Image.SaveAs(path);
 
-                    events.Photo = image;
+                    articles.Photo = image;
                 }
-                db.Events.Add(events);
+                db.Articles.Add(articles);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
@@ -71,58 +72,57 @@ namespace Observasky.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
-            if (events == null)
+            Articles articles = db.Articles.Find(id);
+            if (articles == null)
             {
                 return HttpNotFound();
             }
-            return View(events);
+            return View(articles);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Events events)
+        public ActionResult Edit(Articles articles)
         {
             if (ModelState.IsValid)
             {
-                if (events.Image != null && events.Image.ContentLength > 0)
+                if (articles.Image != null && articles.Image.ContentLength > 0)
                 {
-                    var image = Path.GetFileName(events.Image.FileName);
+                    var image = Path.GetFileName(articles.Image.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
-                    events.Image.SaveAs(path);
-                    events.Photo = image; 
+                    articles.Image.SaveAs(path);
+                    articles.Photo = image;
                 }
 
-                db.Entry(events).State = EntityState.Modified;
+                db.Entry(articles).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(events);
+            return View(articles);
         }
 
-        [HttpGet]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
-            if (events == null)
+            Articles articles = db.Articles.Find(id);
+            if (articles == null)
             {
                 return HttpNotFound();
             }
-            return View(events);
+            return View(articles);
         }
 
-       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Events events = db.Events.Find(id);
-            db.Events.Remove(events);
+            Articles articles = db.Articles.Find(id);
+            db.Articles.Remove(articles);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

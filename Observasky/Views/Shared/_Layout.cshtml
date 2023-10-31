@@ -38,11 +38,16 @@
                     {
                         <li>@Html.ActionLink("Lectures", "Index", "Lectures", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Events", "Index", "Events", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Articles", "Index", "Articles", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Glossary", "Index", "Glossary", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Members", "Members", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Profile", "Profile", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
                     }
                     else if (User.IsInRole("Stargazer"))
                     {
+                        <li>@Html.ActionLink("Profile", "Profile", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
                     <li>@Html.ActionLink("Info", "Info", "Home", new { area = "" }, new { @class = "nav-link" })</li>
