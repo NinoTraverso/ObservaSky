@@ -14,11 +14,15 @@ namespace Observasky.Controllers
     {
         private ModelDbContext db = new ModelDbContext();
 
+        // -------------------------------------------------------------------------------  INDEX  --------------------------------------  //
+
         [HttpGet]
         public ActionResult Index()
         {
             return View(db.Glossary.ToList());
         }
+
+        // -------------------------------------------------------------------------------  DETAILS  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Details(int? id)
@@ -34,6 +38,8 @@ namespace Observasky.Controllers
             }
             return View(glossary);
         }
+
+        // -------------------------------------------------------------------------------  CREATE  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Create()
@@ -55,6 +61,8 @@ namespace Observasky.Controllers
 
             return View(glossary);
         }
+
+        // -------------------------------------------------------------------------------  EDIT  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Edit(int? id)
@@ -84,6 +92,8 @@ namespace Observasky.Controllers
             return View(glossary);
         }
 
+        // -------------------------------------------------------------------------------  DELETE  --------------------------------------  //
+
         [HttpGet]
         public ActionResult Delete(int? id)
         {
@@ -109,6 +119,8 @@ namespace Observasky.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // -------------------------------------------------------------------------------  DISPOSE  --------------------------------------  //
 
         protected override void Dispose(bool disposing)
         {

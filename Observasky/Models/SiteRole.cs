@@ -39,7 +39,7 @@ namespace Observasky.Models
 
         public override string[] GetRolesForUser(string username)
         {
-            //Per la gestione degi eventi, glossario e articoli abbiamo "Astronomer", per la altre cose sará "Stargazer"
+            //Per la gestione degi eventi, glossario, articoli etc... abbiamo "Astronomer", per la altre cose generali sará "Stargazer"
             Users user = db.Users.FirstOrDefault(x => x.Username == username);
             List<string> roles = new List<string>();
             roles.Add(user.Role);

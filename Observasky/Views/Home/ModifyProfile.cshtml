@@ -70,34 +70,3 @@
 <button type="submit" class="btn btn-primary">Save Changes</button>
 }
 
-@* OLD MODIFY FORM
-    @using (Html.BeginForm("SaveProfileChanges", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Username)
-            @Html.EditorFor(model => model.Username)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email)
-            @Html.EditorFor(model => model.Email)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password)
-            @Html.PasswordFor(model => model.Password)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image)
-            <input type="file" name="Image" />
-        </div>
-
-        @Html.HiddenFor(model => model.IdUser)
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-    }
-*@
-

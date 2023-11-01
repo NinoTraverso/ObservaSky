@@ -9,9 +9,6 @@ namespace Observasky
     {
         public static void Register(HttpConfiguration config)
         {
-            // Servizi e configurazione dell'API Web
-
-            // Route dell'API Web
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

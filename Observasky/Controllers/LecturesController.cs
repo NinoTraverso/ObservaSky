@@ -15,11 +15,15 @@ namespace Observasky.Controllers
     {
         private ModelDbContext db = new ModelDbContext();
 
+        // -------------------------------------------------------------------------------  INDEX  --------------------------------------  //
+
         [HttpGet]
         public ActionResult Index()
         {
             return View(db.Lectures.ToList());
         }
+
+        // -------------------------------------------------------------------------------  DETAILS  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Details(int? id)
@@ -35,6 +39,8 @@ namespace Observasky.Controllers
             }
             return View(lectures);
         }
+
+        // -------------------------------------------------------------------------------  CREATE  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Create()
@@ -64,6 +70,8 @@ namespace Observasky.Controllers
             return RedirectToAction("Index");
         }
 
+        // -------------------------------------------------------------------------------  EDIT  --------------------------------------  //
+
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -86,7 +94,6 @@ namespace Observasky.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Check if a new image was uploaded
                 if (lectures.Image != null && lectures.Image.ContentLength > 0)
                 {
                     var image = Path.GetFileName(lectures.Image.FileName);
@@ -101,6 +108,8 @@ namespace Observasky.Controllers
             }
             return View(lectures);
         }
+
+        // -------------------------------------------------------------------------------  DELETE  --------------------------------------  //
 
         [HttpGet]
         public ActionResult Delete(int? id)
@@ -127,6 +136,8 @@ namespace Observasky.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // -------------------------------------------------------------------------------  DISPOSE  --------------------------------------  //
 
         protected override void Dispose(bool disposing)
         {
