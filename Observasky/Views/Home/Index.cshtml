@@ -2,5 +2,24 @@
 
 
 <main>
-    <h1>HELLO </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" id="CarouselEvents"></div>
+            <div class="col-8" id="CarouselEvents">
+                QUEI METTIAMO QUALCOSA
+            </div>
+        </div>
+    </div>
+
+            <h1>Lectures</h1>
+
 </main>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#CarouselEvents").load('@Url.Action("CarouselEvents", "Home")');
+        });
+    </script>
+}

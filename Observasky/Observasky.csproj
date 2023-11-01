@@ -230,6 +230,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\CSS\CarouselEvents.css" />
     <Content Include="Content\CSS\HomeIndex.css" />
     <Content Include="Content\CSS\nav.css" />
     <Content Include="Content\Images\alien-8054890_1280.png" />
@@ -309,6 +310,7 @@
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Home\ModifyProfile.cshtml" />
     <Content Include="Views\Home\DeleteProfile.cshtml" />
+    <Content Include="Views\Home\_CarouselEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

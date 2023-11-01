@@ -254,6 +254,25 @@ namespace Observasky.Controllers
             return View("DeletionFailed");
         }
 
+
+        // -------------------------------------------------------------------------------  TOP 3 EVENTS  --------------------------------------  //
+        public PartialViewResult CarouselEvents()
+        {
+            using (ModelDbContext context = new ModelDbContext())
+            {
+                DateTime now = DateTime.Now;
+
+                var upcomingEvents = context.Events
+                    .Where(e => e.Date.HasValue && e.Date > now)
+                    .OrderBy(e => e.Date)
+                    .Take(3)
+                    .ToList();
+
+                return PartialView("_CarouselEvents", upcomingEvents);
+            }
+        }
+
+
     }
 }
 

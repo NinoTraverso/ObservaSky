@@ -1,0 +1,37 @@
+﻿@model List<Observasky.Models.Events>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link href="@Url.Content("~/Content/CSS/CarouselEvents.css")" rel="stylesheet" type="text/css" />
+
+<div id="carouselEvents" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            var ev = Model[i];
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                @if (!string.IsNullOrEmpty(ev.Photo))
+                {
+                    <div class="image-container">
+                        <img src="~/Content/Images/@ev.Photo" class="d-block" alt="@ev.Name" />
+                    </div>
+                }
+                <div class="carousel-caption">
+                    <h3>@ev.Name</h3>
+                    <p>@(ev.Date.HasValue ? ev.Date.Value.ToString("dd/MM/yyyy") : "")</p>
+                </div>
+            </div>
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carouselEvents" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselEvents" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
+
