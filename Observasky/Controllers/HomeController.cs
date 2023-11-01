@@ -148,7 +148,7 @@ namespace Observasky.Controllers
             }
         }
 
-        public new ActionResult Profile()
+        public ActionResult Profile()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -166,6 +166,93 @@ namespace Observasky.Controllers
                 return RedirectToAction("Login", "Home");
             }
         }
+
+        public ActionResult ModifyProfile()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = GetUserProfile();
+
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfileChanges(Users modifiedUser, HttpPostedFileBase Image)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new ModelDbContext())
+                {
+                    var user = db.Users.Find(modifiedUser.IdUser);
+
+                    if (user == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    user.Username = modifiedUser.Username;
+                    user.Email = modifiedUser.Email;
+                    user.Password = modifiedUser.Password;
+
+                    if (Image != null)
+                    {
+                        var fileName = Path.GetFileName(Image.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
+                        Image.SaveAs(path);
+
+                        user.Photo = fileName;
+                    }
+
+
+                    db.SaveChanges(); 
+
+                    return RedirectToAction("Profile"); 
+                }
+            }
+
+            return View("ModifyProfile", modifiedUser);
+        }
+
+        [HttpGet]
+        public ActionResult DeleteProfile()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteProfileConfirmed()
+        {
+            FormsAuthentication.SignOut();
+
+            using (var db = new ModelDbContext())
+            {
+                string username = User.Identity.Name;
+                var user = db.Users.FirstOrDefault(u => u.Username == username);
+
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Login", "Home");
+                }
+            }
+
+            return View("DeletionFailed");
+        }
+
     }
 }
 

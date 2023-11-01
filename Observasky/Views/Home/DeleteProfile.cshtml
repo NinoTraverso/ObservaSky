@@ -1,0 +1,12 @@
+﻿@model Observasky.Models.Users
+
+@{
+    ViewBag.Title = "DeleteProfile";
+}
+
+<h2>Are you sure you want to leave us?</h2>
+@using (Html.BeginForm("DeleteProfileConfirmed", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Delete</button>
+}
