@@ -232,9 +232,11 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\CSS\CarouselEvents.css" />
     <Content Include="Content\CSS\HomeIndex.css" />
-    <Content Include="Content\CSS\nav.css" />
+    <Content Include="Content\CSS\Layout.css" />
+    <Content Include="Content\CSS\solarSystem.css" />
     <Content Include="Content\Images\alien-8054890_1280.png" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
+    <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />

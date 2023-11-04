@@ -5,23 +5,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - OservaSky</title>
-    @Styles.Render("~/Content/css")
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link href="~/Content/CSS/nav.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+
+    <!--
+        MY COLOURS:
+        - LIGHT-BLUE: 8ecae6 | 142, 202, 230
+        - BLUE: 219ebc | 33, 158, 188
+        - DARK-BLUE: 023047 | 2, 48, 71
+        - YELLOW: ffb703 | 255, 183, 3
+        - ORANGE: fb8500 | 251, 133, 0
+
+        -->
+
+    <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
 
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            <a class="imageContainer" href="@Url.Action("Index", "Home")">
-                <img src="~/Content/Images/alien-8054890_1280.png" alt="Observasky" />
-            </a>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+        <div class="container ps-3 ms-0 bs-0">
+            <div class="logoContainer pe-3 " href="@Url.Action("Index", "Home")">
+                <img src="~/Content/Images/observasky-high-resolution-logo-transparent.png" alt="Observasky" />
+            </div>
 
-            @Html.ActionLink("ObservaSky", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("ObservaSky", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: rgb(142, 202, 230);" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,10 +41,9 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
 
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Astrogate", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="navText">@Html.ActionLink("Astrogate", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
 
                     @if (User.IsInRole("Astronomer"))

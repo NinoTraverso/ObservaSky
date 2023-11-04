@@ -1,0 +1,22 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap");
+
+nav {
+    font-family: "Roboto Mono", monospace;
+    background: linear-gradient(to top, rgba(33, 158, 188, 0.3), rgba(33, 158, 188, 0));
+}
+
+.nav-link {
+    color: rgb(142, 202, 230);
+}
+
+
+.logoContainer {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.logoContainer img {
+    max-width: 100%;
+    max-height: 100%; 
+}
+
