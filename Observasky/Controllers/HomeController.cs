@@ -24,7 +24,9 @@ namespace Observasky.Controllers
 
             return View();
         }
+
         // ------------------------------------------------------------------------------- STARGAZER REGISTER  --------------------------------------  //
+        
         [HttpGet]
         public ActionResult Register()
         {
@@ -36,24 +38,33 @@ namespace Observasky.Controllers
         public ActionResult Register(Users users)
         {
             users.Photo = "";
+
             if (ModelState.IsValid)
             {
+                
+                if (db.Users.Any(u => u.Username == users.Username || u.Email == users.Email))
+                {
+                    ModelState.AddModelError(string.Empty, "Username or email already registered.");
+                    return View(users); 
+                }
+
                 if (users.Image != null && users.Image.ContentLength > 0)
                 {
                     var image = Path.GetFileName(users.Image.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
                     users.Image.SaveAs(path);
-
                     users.Photo = image;
                 }
+
                 db.Users.Add(users);
-
                 users.Role = "Stargazer";
-
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+
+            return View(users);
         }
+
 
         // -------------------------------------------------------------------------------  ADD ASTRONOMER  --------------------------------------  //
         [HttpGet]
@@ -67,24 +78,34 @@ namespace Observasky.Controllers
         public ActionResult AddAstronomer(Users users)
         {
             users.Photo = "";
+
             if (ModelState.IsValid)
             {
+                if (db.Users.Any(u => u.Username == users.Username || u.Email == users.Email))
+                {
+                    ModelState.AddModelError(string.Empty, "Username or email already registered.");
+                    return View(users);
+                }
+
                 if (users.Image != null && users.Image.ContentLength > 0)
                 {
                     var image = Path.GetFileName(users.Image.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Images/"), image);
                     users.Image.SaveAs(path);
-
                     users.Photo = image;
                 }
-                db.Users.Add(users);
 
                 users.Role = "Astronomer";
-
+                db.Users.Add(users);
                 db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+
+            return View(users);
         }
+
+
 
         // -------------------------------------------------------------------------------  LOGIN  --------------------------------------  //
         [HttpGet]
@@ -263,6 +284,13 @@ namespace Observasky.Controllers
                         return HttpNotFound();
                     }
 
+
+                    if (db.Users.Any(u => (u.IdUser != user.IdUser) && (u.Username == modifiedUser.Username || u.Email == modifiedUser.Email)))
+                    {
+                        ModelState.AddModelError(string.Empty, "Username or email already registered.");
+                        return View("ModifyProfile", modifiedUser); 
+                    }
+
                     user.Username = modifiedUser.Username;
                     user.Email = modifiedUser.Email;
                     user.Password = modifiedUser.Password;
@@ -276,15 +304,15 @@ namespace Observasky.Controllers
                         user.Photo = fileName;
                     }
 
+                    db.SaveChanges();
 
-                    db.SaveChanges(); 
-
-                    return RedirectToAction("Profile"); 
+                    return RedirectToAction("Profile");
                 }
             }
 
             return View("ModifyProfile", modifiedUser);
         }
+
 
         [HttpGet]
         public ActionResult DeleteProfile()
