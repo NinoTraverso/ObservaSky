@@ -2,7 +2,7 @@
 
 
 <main>
-    <div class="container">
+    <div class="EventsContainer">
         <div class="row">
             <div class="col-4" id="CarouselEvents"></div>
             <div class="col-8" id="CarouselEvents">
@@ -11,15 +11,23 @@
         </div>
     </div>
 
-            <h1>Lectures</h1>
+    <h1>Lectures</h1>
+
+    <div id="PartialLectures" class="d-flex flex-row"></div>
+   
 
 </main>
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script>
+<script>
         $(document).ready(function () {
             $("#CarouselEvents").load('@Url.Action("CarouselEvents", "Home")');
         });
-    </script>
+
+        $(document).ready(function () {
+            $("#PartialLectures").load('@Url.Action("ShowLectures", "Home")');
+        });
+</script>
 }
+

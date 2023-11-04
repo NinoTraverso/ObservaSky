@@ -80,7 +80,7 @@ namespace Observasky.Controllers
             users.Photo = "";
 
             if (ModelState.IsValid)
-            {
+            { 
                 if (db.Users.Any(u => u.Username == users.Username || u.Email == users.Email))
                 {
                     ModelState.AddModelError(string.Empty, "Username or email already registered.");
@@ -364,22 +364,21 @@ namespace Observasky.Controllers
 
         // -------------------------------------------------------------------------------  TOP 3 LECTURES  --------------------------------------  //
 
-        public PartialViewResult CarouselLectures()
+        public PartialViewResult ShowLectures()
         {
             using (ModelDbContext context = new ModelDbContext())
             {
                 DateTime now = DateTime.Now;
 
-                var upcomingLectures = context.Events
-                    .Where(e => e.Date.HasValue && e.Date > now)
-                    .OrderBy(e => e.Date)
+                var upcomingLectures = context.Lectures
+                    .Where(lecture => lecture.DateTime.HasValue && lecture.DateTime > now)
+                    .OrderBy(lecture => lecture.DateTime)
                     .Take(3)
                     .ToList();
 
-                return PartialView("_CarouselLectures", upcomingLectures);
+                return PartialView("_ShowLectures", upcomingLectures);
             }
         }
-
     }
 }
 

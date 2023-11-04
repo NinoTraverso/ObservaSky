@@ -311,6 +311,7 @@
     <Content Include="Views\Home\ModifyProfile.cshtml" />
     <Content Include="Views\Home\DeleteProfile.cshtml" />
     <Content Include="Views\Home\_CarouselEvents.cshtml" />
+    <Content Include="Views\Home\_ShowLectures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

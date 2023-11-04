@@ -1,0 +1,42 @@
+﻿@model List<Observasky.Models.Lectures>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.min.js"></script>
+
+<style>
+    .card {
+        width: 18rem;
+    }
+
+    .card-img {
+        height: 350px;
+        object-fit: cover;
+        object-position: center center;
+    }
+</style>
+
+
+@if (Model != null)
+{
+    foreach (var lecture in Model)
+    {
+        <div class="col-4 mb-4">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(lecture.Photo))
+                {
+                    <img src="~/Content/Images/@lecture.Photo" class="card-img" alt="@lecture.Name">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@lecture.Name</h5>
+                    <p class="card-text">Date and Time: @lecture.DateTime</p>
+                    <p class="card-text">Speakers: @lecture.Speakers</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>No upcoming lectures found.</p>
+}
+
