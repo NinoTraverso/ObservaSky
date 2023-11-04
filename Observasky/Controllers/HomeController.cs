@@ -95,14 +95,16 @@ namespace Observasky.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Login([Bind(Include = "Username, Password, Role")] Users users)
         {
-
             var user = db.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
 
             if (user != null)
             {
+                if (user.Role == "Banned")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
 
                 FormsAuthentication.SetAuthCookie(users.Username, false);
                 return RedirectToAction("Index", "Home");
@@ -119,12 +121,71 @@ namespace Observasky.Controllers
             return RedirectToAction("Login", "Home");
         }
 
-        // -------------------------------------------------------------------------------  MEMBERS  --------------------------------------  //
+        // -------------------------------------------------------------------------------  MEMBERS COUNT --------------------------------------  //
 
         [HttpGet]
         public ActionResult Members()
         {
+            int astronomerCount = db.Users.Count(u => u.Role == "Astronomer");
+            int stargazerCount = db.Users.Count(u => u.Role == "Stargazer");
+            int bannedCount = db.Users.Count(u => u.Role == "Banned");
+
+            ViewBag.AstronomerCount = astronomerCount;
+            ViewBag.StargazerCount = stargazerCount;
+            ViewBag.BannedCount = bannedCount;
+
+            List<Users> astronomers = db.Users.Where(u => u.Role == "Astronomer").ToList();
+            List<Users> stargazers = db.Users.Where(u => u.Role == "Stargazer").ToList();
+            List<Users> bannedMembers = db.Users.Where(u => u.Role == "Banned").ToList();
+            
+
+            ViewBag.Astronomers = astronomers;
+            ViewBag.Stargazers = stargazers;
+            ViewBag.BannedMembers = bannedMembers;
+
             return View();
+        }
+        // -------------------------------------------------------------------------------  MEMBER SEARCH --------------------------------------  //
+        public ActionResult SearchUsers(string searchQuery)
+        {
+            List<Users> searchResults = db.Users
+                .Where(u => u.Username.Contains(searchQuery) && (u.Role == "Astronomer" || u.Role == "Stargazer" || u.Role == "Banned"))
+                .ToList();
+
+            ViewBag.SearchResults = searchResults;
+
+            return View("Members");
+        }
+
+        // -------------------------------------------------------------------------------  BAN MEMBER --------------------------------------  //
+        [HttpPost]
+        public ActionResult BanUser(int userId, string userRole)
+        {
+            var user = db.Users.Find(userId);
+
+            if (user != null && (userRole == "Astronomer" || userRole == "Stargazer"))
+            {
+                user.Role = "Banned";
+                db.SaveChanges(); 
+            }
+
+            return Json(new { success = true }); 
+        }
+
+        // -------------------------------------------------------------------------------  UNBAN MEMBER --------------------------------------  //
+
+        [HttpPost]
+        public ActionResult UnbanUser(int userId, string userRole)
+        {
+            var user = db.Users.Find(userId);
+
+            if (user != null && user.Role == "Banned")
+            {
+                user.Role = userRole;
+                db.SaveChanges();
+            }
+
+            return Json(new { success = true });
         }
 
         // -------------------------------------------------------------------------------  INFO  --------------------------------------  //
@@ -272,6 +333,24 @@ namespace Observasky.Controllers
             }
         }
 
+
+        // -------------------------------------------------------------------------------  TOP 3 LECTURES  --------------------------------------  //
+
+        public PartialViewResult CarouselLectures()
+        {
+            using (ModelDbContext context = new ModelDbContext())
+            {
+                DateTime now = DateTime.Now;
+
+                var upcomingLectures = context.Events
+                    .Where(e => e.Date.HasValue && e.Date > now)
+                    .OrderBy(e => e.Date)
+                    .Take(3)
+                    .ToList();
+
+                return PartialView("_CarouselLectures", upcomingLectures);
+            }
+        }
 
     }
 }

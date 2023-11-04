@@ -12,3 +12,106 @@
 
 <h2>Members</h2>
 
+@using (Html.BeginForm("SearchUsers", "Home", FormMethod.Get))
+{
+    <input type="text" name="searchQuery" placeholder="Search for users" />
+    <button type="submit">Search</button>
+}
+
+@if (ViewBag.Astronomers != null)
+{
+    <p>Total Astronomers: @ViewBag.Astronomers.Count</p>
+    <ul>
+        @foreach (var astronomer in ViewBag.Astronomers)
+        {
+            <li>
+                @astronomer.Username
+                <button class="banButton" data-id="@astronomer.IdUser" data-role="Astronomer">Ban</button>
+            </li>
+        }
+    </ul>
+}
+
+@if (ViewBag.Stargazers != null)
+{
+    <p>Total Stargazers: @ViewBag.Stargazers.Count</p>
+    <ul>
+        @foreach (var stargazer in ViewBag.Stargazers)
+        {
+            <li>
+                @stargazer.Username
+                <button class="banButton" data-id="@stargazer.IdUser" data-role="Stargazer">Ban</button>
+            </li>
+        }
+    </ul>
+}
+
+@if (ViewBag.BannedMembers != null)
+{
+    <p>Total Banned Members: @ViewBag.BannedCount</p>
+    <ul>
+        @foreach (var bannedMember in ViewBag.BannedMembers)
+        {
+            <li>
+                @bannedMember.Username
+
+                <select class="roleSelection" data-id="@bannedMember.IdUser">
+                    <option value="Astronomer">Astronomer</option>
+                    <option value="Stargazer">Stargazer</option>
+                </select>
+                <button class="unbanButton" data-id="@bannedMember.IdUser">Unban</button>
+            </li>
+        }
+    </ul>
+}
+
+
+@if (ViewBag.SearchResults != null)
+{
+    <h3>Search Results</h3>
+    <ul>
+        @foreach (var searchResult in ViewBag.SearchResults)
+        {
+            <li>@searchResult.Username</li>
+        }
+    </ul>
+}
+
+
+<script>
+    $(document).ready(function () {
+        $(".banButton").click(function () {
+            var userId = $(this).data("id");
+            var userRole = $(this).data("role");
+
+            $.ajax({
+                url: '@Url.Action("BanUser", "Home")',
+                type: 'POST',
+                data: { userId: userId, userRole: userRole },
+                success: function (data) {
+
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+    $(".unbanButton").click(function () {
+        var userId = $(this).data("id");
+        var selectedRole = $(this).parent().find(".roleSelection").val();  
+
+        $.ajax({
+            url: '@Url.Action("UnbanUser", "Home")',
+            type: 'POST',
+            data: { userId: userId, userRole: selectedRole }, 
+            success: function (data) {
+                location.reload();
+            }
+        });
+    });
+});
+
+</script>
