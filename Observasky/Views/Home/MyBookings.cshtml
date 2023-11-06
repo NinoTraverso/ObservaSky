@@ -26,8 +26,12 @@
                 <td>@booking.Lectures.Name</td>
                 <td>@booking.Lectures.DateTime</td>
                 <td>@booking.Surname</td>
+                <td>
+                    @Html.ActionLink("Cancel", "ConfirmCancellation", new { id = booking.IdBooking })
+                </td>
             </tr>
         }
+
     </table>
 }
 else

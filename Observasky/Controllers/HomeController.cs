@@ -503,12 +503,51 @@ namespace Observasky.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        // -------------------------------------------------------------------------------  CANCEL MY BOOKINGS  --------------------------------------  //
+        public ActionResult ConfirmCancellation(int id)
+        {
+            using (var dbContext = new ModelDbContext())
+            {
+                var booking = dbContext.Guests
+                    .Include(b => b.Lectures) 
+                    .SingleOrDefault(b => b.IdBooking == id);
+
+                if (booking != null)
+                {
+                    return View(booking);
+                }
+            }
+
+            return RedirectToAction("MyBookings");
+        }
 
 
+        [HttpPost]
+        public ActionResult ConfirmCancellationConfirmed(int id)
+        {
+            using (var dbContext = new ModelDbContext())
+            {
+                var booking = dbContext.Guests.Find(id);
 
+                if (booking != null)
+                {
+                    var lecture = dbContext.Lectures.Find(booking.LectureID);
 
+                    if (lecture != null)
+                    {
+                        lecture.Seats += booking.NumberOfGuests;
 
+                        dbContext.Guests.Remove(booking);
 
+                        dbContext.SaveChanges();
+
+                        return RedirectToAction("MyBookings");
+                    }
+                }
+            }
+
+            return RedirectToAction("MyBookings");
+        }
     }
 }
 

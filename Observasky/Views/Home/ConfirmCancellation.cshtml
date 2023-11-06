@@ -1,0 +1,36 @@
+﻿@model Observasky.Models.Guests
+
+@{
+    ViewBag.Title = "Confirm Cancellation";
+}
+
+<h2>Confirm Cancellation</h2>
+
+<p>Are you sure you want to cancel your booking with the following details?</p>
+
+<table class="table">
+    <tr>
+        <th>Booking ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Lecture Name</th>
+        <th>Date</th>
+        <th>Surname</th>
+    </tr>
+    <tr>
+        <td>@Model.IdBooking</td>
+        <td>@Model.Name</td>
+        <td>@Model.Email</td>
+        <td>@Model.Lectures.Name</td>
+        <td>@Model.Lectures.DateTime</td>
+        <td>@Model.Surname</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm("ConfirmCancellationConfirmed", "Home", new { id = Model.IdBooking }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Confirm Cancellation" class="btn btn-danger" />
+}
+
+<a href="@Url.Action("MyBookings", "Home")" class="btn btn-primary">Back to My Bookings</a>
