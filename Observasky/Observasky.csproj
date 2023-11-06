@@ -318,6 +318,10 @@
     <Content Include="Views\Home\DeleteProfile.cshtml" />
     <Content Include="Views\Home\_CarouselEvents.cshtml" />
     <Content Include="Views\Home\_ShowLectures.cshtml" />
+    <Content Include="Views\Home\AllLectures.cshtml" />
+    <Content Include="Views\Home\BookLecture.cshtml" />
+    <Content Include="Views\Home\BookingSuccess.cshtml" />
+    <Content Include="Views\Home\MyBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

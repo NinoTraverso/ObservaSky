@@ -1,0 +1,36 @@
+﻿@model List<Observasky.Models.Guests>
+
+@{
+    ViewBag.Title = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Booking ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Lecture Name</th>
+            <th>Date</th>
+            <th>Surname</th>
+        </tr>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.IdBooking</td>
+                <td>@booking.Name</td>
+                <td>@booking.Email</td>
+                <td>@booking.Lectures.Name</td>
+                <td>@booking.Lectures.DateTime</td>
+                <td>@booking.Surname</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No bookings found.</p>
+}

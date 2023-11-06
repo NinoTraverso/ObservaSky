@@ -1,0 +1,21 @@
+﻿@model Observasky.Models.Lectures
+
+
+<h2>Upcoming Lectures</h2>
+
+<button>@Html.ActionLink("Book", "BookLecture", "Home", new { area = "" }, new { @class = "nav-link" })</button>
+<ul>
+    @foreach (var lecture in ViewBag.UpcomingLectures)
+    {
+        <li>@lecture.Name - @lecture.DateTime</li>
+
+    }
+</ul>
+
+<h2>Past Lectures</h2>
+<ul>
+    @foreach (var lecture in ViewBag.PastLectures)
+    {
+        <li>@lecture.Name - @lecture.DateTime</li>
+    }
+</ul>

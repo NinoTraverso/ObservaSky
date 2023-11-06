@@ -379,6 +379,136 @@ namespace Observasky.Controllers
                 return PartialView("_ShowLectures", upcomingLectures);
             }
         }
+
+        // -------------------------------------------------------------------------------  LECTURES BOOKING  --------------------------------------  //
+
+        
+
+        public ActionResult AllLectures()
+        {
+
+            var allLectures = db.Lectures.ToList();
+
+            var upcomingLectures = allLectures
+                .Where(l => l.DateTime > DateTime.Now)
+                .ToList();
+
+            var pastLectures = allLectures
+                .Where(l => l.DateTime <= DateTime.Now)
+                .ToList();
+
+            ViewBag.UpcomingLectures = upcomingLectures;
+            ViewBag.PastLectures = pastLectures;
+
+            return View();
+        }
+
+        public ActionResult BookLecture()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentDate = DateTime.Now;
+                using (var dbContext = new ModelDbContext())
+                {
+                    var upcomingLectures = dbContext.Lectures.Where(lecture => lecture.DateTime > currentDate).ToList();
+                    var guest = new Guests();
+
+                    ViewBag.UpcomingLectures = new SelectList(upcomingLectures, "IdLecture", "Name");
+
+                    return View(guest);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult SubmitBooking(Guests guest)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var dbContext = new ModelDbContext())
+                {
+
+                    var lecture = dbContext.Lectures.Find(guest.LectureID);
+
+                    if (lecture != null)
+                    {
+
+                        lecture.Seats -= guest.NumberOfGuests;
+
+
+                        if (lecture.Seats < 0)
+                        {
+                            lecture.Seats = 0; 
+                        }
+
+
+                        dbContext.Guests.Add(guest);
+                        dbContext.SaveChanges();
+
+
+                        return RedirectToAction("BookingSuccess", new { id = guest.IdBooking });
+                    }
+                }
+            }
+
+            return View("BookLecture", guest);
+        }
+
+        public ActionResult BookingSuccess(int id)
+        {
+            using (var dbContext = new ModelDbContext())
+            {
+                var booking = dbContext.Guests.Find(id);
+
+                if (booking != null)
+                {
+                    ViewBag.LectureName = dbContext.Lectures.Find(booking.LectureID)?.Name;
+                    return View(booking);
+                }
+            }
+
+            return RedirectToAction("BookingNotFound");
+        }
+
+        // -------------------------------------------------------------------------------  SEE MY BOOKINGS  --------------------------------------  //
+
+        public ActionResult MyBookings()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                using (var dbContext = new ModelDbContext())
+                {
+                    string userEmail = dbContext.Users
+                        .Where(u => u.Username == User.Identity.Name)
+                        .Select(u => u.Email)
+                        .FirstOrDefault();
+
+                    if (!string.IsNullOrEmpty(userEmail))
+                    {
+                        var userBookings = dbContext.Guests
+                            .Where(g => g.Email == userEmail)
+                            .Include(g => g.Lectures)
+                            .ToList();
+
+                        return View(userBookings);
+                    }
+                }
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
+
+
+
+
+
+
     }
 }
 

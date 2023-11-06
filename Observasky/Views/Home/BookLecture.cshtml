@@ -1,0 +1,29 @@
+﻿@model Observasky.Models.Guests
+
+@{
+    ViewBag.Title = "BookLecture";
+}
+
+<h2>BookLecture</h2>
+
+@using (Html.BeginForm("SubmitBooking", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+
+    @Html.LabelFor(m => m.Surname)
+    @Html.TextBoxFor(m => m.Surname)
+
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+
+    @Html.LabelFor(m => m.NumberOfGuests)
+    @Html.TextBoxFor(m => m.NumberOfGuests)
+
+    @Html.Label("Select a Lecture")
+    @Html.DropDownListFor(m => m.LectureID, ViewBag.UpcomingLectures as SelectList, "Select Lecture")
+
+    <input type="submit" value="Submit">
+}
