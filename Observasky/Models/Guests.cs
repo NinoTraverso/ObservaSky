@@ -17,6 +17,9 @@ namespace Observasky.Models
         [StringLength(50)]
         public string Surname { get; set; }
 
+        [StringLength(100)]
+        public string Email { get; set; }
+
         public int? NumberOfGuests { get; set; }
 
         public int? LectureID { get; set; }

@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202310292245374_NoLimitsToLectureDescriptionLength.designer.cs">
       <DependentUpon>202310292245374_NoLimitsToLectureDescriptionLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311061539149_AddedEmailToGuests.cs" />
+    <Compile Include="Migrations\202311061539149_AddedEmailToGuests.designer.cs">
+      <DependentUpon>202311061539149_AddedEmailToGuests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\Events.cs" />
@@ -360,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310292245374_NoLimitsToLectureDescriptionLength.resx">
       <DependentUpon>202310292245374_NoLimitsToLectureDescriptionLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311061539149_AddedEmailToGuests.resx">
+      <DependentUpon>202311061539149_AddedEmailToGuests.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
