@@ -6,7 +6,7 @@
 
 <h2>Glossary</h2>
 
-@using (Html.BeginForm("SearchGlossary", "Home", FormMethod.Get))
+@using (Html.BeginForm("GlossaryList", "Home", FormMethod.Get))
 {
     <div class="input-group mb-3">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by term...">
@@ -15,6 +15,13 @@
         </div>
     </div>
 }
+
+@for (char c = 'A'; c <= 'Z'; c++)
+{
+    <a href="@Url.Action("GlossaryList", new { letter = c })">@c</a>
+}
+
+<a href="@Url.Action("GlossaryList")">All</a>
 
 <table class="table table-bordered">
     <thead>
@@ -33,3 +40,4 @@
         }
     </tbody>
 </table>
+

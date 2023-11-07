@@ -569,14 +569,8 @@ namespace Observasky.Controllers
             return View(article);
         }
 
-        // -------------------------------------------------------------------------------  ALL ARTICLES  --------------------------------------  //
-        public ActionResult GlossaryList()
-        {
-            var glossary = db.Glossary.OrderBy(g => g.Name).ToList();
-            return View(glossary);
-        }
-
-        public ActionResult SearchGlossary(string searchQuery)
+        // -------------------------------------------------------------------------------  SEARCH GLOSSARY  --------------------------------------  //
+        public ActionResult GlossaryList(string searchQuery, char? letter)
         {
             var glossary = db.Glossary.ToList();
 
@@ -584,12 +578,24 @@ namespace Observasky.Controllers
             {
                 searchQuery = searchQuery.ToLower();
                 glossary = glossary
-                    .Where(g => g.Name.ToLower().Contains(searchQuery) || g.Description.ToLower().Contains(searchQuery))
+                    .Where(g => g.Name.ToLower().Contains(searchQuery))
+                    .OrderBy(g => g.Name)
+                    .ToList();
+            }
+            else if (letter.HasValue)
+            {
+                glossary = glossary
+                    .Where(g => g.Name.ToLower().StartsWith(letter.Value.ToString().ToLower()))
+                    .OrderBy(g => g.Name)
                     .ToList();
             }
 
-            return View("GlossaryList", glossary);
+            return View(glossary);
         }
+
+
+
+
 
 
 
