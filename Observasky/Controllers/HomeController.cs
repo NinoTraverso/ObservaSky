@@ -548,6 +548,51 @@ namespace Observasky.Controllers
 
             return RedirectToAction("MyBookings");
         }
+
+        // -------------------------------------------------------------------------------  ALL ARTICLES  --------------------------------------  //
+
+        public ActionResult ArticleList()
+        {
+            var articles = db.Articles.ToList();
+            return View(articles);
+        }
+
+        // -------------------------------------------------------------------------------  VIEW SINGLE ARTICLE  --------------------------------------  //
+        public ActionResult FullArticle(int id)
+        {
+            var article = db.Articles.Find(id);
+            if (article == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(article);
+        }
+
+        // -------------------------------------------------------------------------------  ALL ARTICLES  --------------------------------------  //
+        public ActionResult GlossaryList()
+        {
+            var glossary = db.Glossary.OrderBy(g => g.Name).ToList();
+            return View(glossary);
+        }
+
+        public ActionResult SearchGlossary(string searchQuery)
+        {
+            var glossary = db.Glossary.ToList();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                searchQuery = searchQuery.ToLower();
+                glossary = glossary
+                    .Where(g => g.Name.ToLower().Contains(searchQuery) || g.Description.ToLower().Contains(searchQuery))
+                    .ToList();
+            }
+
+            return View("GlossaryList", glossary);
+        }
+
+
+
     }
 }
 

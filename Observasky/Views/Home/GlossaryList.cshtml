@@ -1,0 +1,35 @@
+﻿@model List<Observasky.Models.Glossary>
+
+@{
+    ViewBag.Title = "Glossary List";
+}
+
+<h2>Glossary</h2>
+
+@using (Html.BeginForm("SearchGlossary", "Home", FormMethod.Get))
+{
+    <div class="input-group mb-3">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Search by term...">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="glossary-item">
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

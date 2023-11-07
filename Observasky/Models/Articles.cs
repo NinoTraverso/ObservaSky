@@ -30,6 +30,7 @@ namespace Observasky.Models
         [StringLength(100)]
         public string Author { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "date")]
         public DateTime? Date { get; set; }
     }

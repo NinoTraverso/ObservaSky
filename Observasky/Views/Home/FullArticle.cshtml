@@ -1,0 +1,27 @@
+﻿@model Observasky.Models.Articles
+
+@{
+    ViewBag.Title = "Full Article";
+}
+
+<div>
+    <h2>@Model.Title</h2>
+    <hr />
+    <div class="article-details">
+        <h4>Introduction</h4>
+        <p>@Model.Introduction</p>
+
+        <h4>Main Content</h4>
+        <p>@Model.Main</p>
+
+        <h4>Conclusions</h4>
+        <p>@Model.Conclusions</p>
+
+        <h4>Author</h4>
+        <p>@Model.Author</p>
+
+        <h4>Date</h4>
+        <p>@Model.Date</p>
+    </div>
+</div>
+

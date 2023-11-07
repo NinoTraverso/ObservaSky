@@ -1,0 +1,43 @@
+﻿@model List<Observasky.Models.Articles>
+
+@{
+    ViewBag.Title = "AllArticles";
+}
+
+<h2>All articles</h2>
+
+@foreach (var article in Model)
+{
+    <a href="@Url.Action("FullArticle", new { id = article.IdArticle })" class="text-decoration-none text-dark">
+        <div class="article-container">
+            <div class="d-flex flex-row">
+                <div>
+                    <dd>
+                        <img src="~/Content/Images/@article.Photo" alt="Event Image" width="200" height="200" />
+                    </dd>
+                </div>
+                <div class="d-flex flex-column">
+                    <h2>
+                        @Html.DisplayFor(model => article.Title)
+                    </h2>
+                    <h5>
+                        @Html.DisplayFor(model => article.Introduction)
+                    </h5>
+                    <div class="d-flex flex-column mt-auto">
+                        <div>
+                            <p>
+                                @Html.DisplayFor(model => article.Author)
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                @Html.DisplayFor(model => article.Date)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+        }
+

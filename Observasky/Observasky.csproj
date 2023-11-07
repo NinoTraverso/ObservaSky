@@ -323,6 +323,9 @@
     <Content Include="Views\Home\BookingSuccess.cshtml" />
     <Content Include="Views\Home\MyBookings.cshtml" />
     <Content Include="Views\Home\ConfirmCancellation.cshtml" />
+    <Content Include="Views\Home\ArticleList.cshtml" />
+    <Content Include="Views\Home\FullArticle.cshtml" />
+    <Content Include="Views\Home\GlossaryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
