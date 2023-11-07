@@ -326,7 +326,6 @@
     <Content Include="Views\Home\ArticleList.cshtml" />
     <Content Include="Views\Home\FullArticle.cshtml" />
     <Content Include="Views\Home\GlossaryList.cshtml" />
-    <Content Include="Views\Home\_SearchGlossary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
