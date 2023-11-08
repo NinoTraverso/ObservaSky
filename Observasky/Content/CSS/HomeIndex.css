@@ -5,10 +5,14 @@ main {
 }
 
 body {
-    background-color: rgb(29, 53, 87);
     color: white;
 }
 
 main {
     font-family: "Roboto Mono", monospace;
 }
+
+#HomeIndexMain {
+
+}
+

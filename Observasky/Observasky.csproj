@@ -245,6 +245,9 @@
     <Content Include="Content\CSS\solarSystem.css" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
     <Content Include="Content\Images\Geminids.jpg" />
+    <Content Include="Content\Images\LayoutBackground.jpg" />
+    <Content Include="Content\Images\LayoutBackground2.jpg" />
+    <Content Include="Content\Images\LayoutBackground3.jpg" />
     <Content Include="Content\Images\Leonids.jpg" />
     <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
