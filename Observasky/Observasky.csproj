@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202311061539149_AddedEmailToGuests.designer.cs">
       <DependentUpon>202311061539149_AddedEmailToGuests.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311081450410_EventImageChangedLength.cs" />
+    <Compile Include="Migrations\202311081450410_EventImageChangedLength.designer.cs">
+      <DependentUpon>202311081450410_EventImageChangedLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\Events.cs" />
@@ -239,8 +243,10 @@
     <Content Include="Content\CSS\HomeIndex.css" />
     <Content Include="Content\CSS\Layout.css" />
     <Content Include="Content\CSS\solarSystem.css" />
-    <Content Include="Content\Images\alien-8054890_1280.png" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
+    <Content Include="Content\Images\Geminids.jpg" />
+    <Content Include="Content\Images\Leonids.jpg" />
+    <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311061539149_AddedEmailToGuests.resx">
       <DependentUpon>202311061539149_AddedEmailToGuests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311081450410_EventImageChangedLength.resx">
+      <DependentUpon>202311081450410_EventImageChangedLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

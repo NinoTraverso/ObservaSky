@@ -17,8 +17,6 @@ namespace Observasky.Models
 
         [NotMapped]
         public HttpPostedFileBase Image { get; set; }
-
-        [StringLength(255)]
         public string Photo { get; set; }
 
         [Column(TypeName = "date")]
