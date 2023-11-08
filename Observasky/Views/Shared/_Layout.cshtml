@@ -27,7 +27,7 @@
 
 
 </head>
-<body>
+<body class="mb-0 pb-0">
 
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
         <div class="container ps-3 ms-0 bs-0">
@@ -98,7 +98,7 @@
         @RenderBody()
     </div>
 
-    <div id="divFooter">
+    <div id="divFooter" class="mb-0 pb-0">
 
         <br />
         <br />
@@ -106,7 +106,7 @@
         <br />
         <br />
         <br />
-        <footer id="footer">
+        <footer id="footer" class="mb-0 pb-0">
             <div>
                 <p>&copy; 2023 Your Company Name</p>
                 <p>Address: 123 Main Street, City</p>
@@ -115,10 +115,8 @@
             </div>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>
