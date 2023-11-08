@@ -21,9 +21,12 @@
         -->
 
     <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
+    <link href="~/Content/CSS/DropDown.css" rel="stylesheet" />
 
 
     @Scripts.Render("~/bundles/modernizr")
+
+
 </head>
 <body>
 
@@ -48,14 +51,20 @@
 
                     @if (User.IsInRole("Astronomer"))
                     {
-                        <li>@Html.ActionLink("Lectures", "Index", "Lectures", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Events", "Index", "Events", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Articles", "Index", "Articles", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Glossary", "Index", "Glossary", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Members", "Members", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Bookings", "MyBookings", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Profile", "Profile", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        <li class="dropdown">
+                            <button class="dropbtn">Manage</button>
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("Index", "Lectures", new { area = "" })">Lectures</a>
+                                <a href="@Url.Action("Index", "Events", new { area = "" })">Events</a>
+                                <a href="@Url.Action("Index", "Articles", new { area = "" })">Articles</a>
+                                <a href="@Url.Action("Members", "Home", new { area = "" })">Members</a>
+                                <a href="@Url.Action("Index", "Glossary", new { area = "" })">Glossary</a>
+
+                            </div>
+                        </li>
+
+
 
                     }
                     else if (User.IsInRole("Stargazer"))
@@ -63,9 +72,24 @@
                         <li>@Html.ActionLink("Profile", "Profile", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Sign Off", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
+                    <li>@Html.ActionLink("Booking", "MyBookings", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Articles", "ArticleList", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Glossary", "GlossaryList", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Info", "Info", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+                    @if (User.IsInRole("Astronomer"))
+                    {
+                        <li class="dropdown rounded-container">
+                            <button class="dropbtn">Profile</button>
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("Profile", "Home", new { area = "" })">Details</a>
+                                <a href="@Url.Action("Logout", "Home", new { area = "" })">Sign Off</a>
+                            </div>
+                        </li>
+                    }
+
+
                 </ul>
             </div>
         </div>
