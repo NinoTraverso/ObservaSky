@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - OservaSky</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--
+    MY COLOURS:
+    - LIGHT-BLUE: 8ecae6 | 142, 202, 230
+    - BLUE: 219ebc | 33, 158, 188
+    - DARK-BLUE: 023047 | 2, 48, 71
+    - YELLOW: ffb703 | 255, 183, 3
+    - ORANGE: fb8500 | 251, 133, 0
+
+    -->
 
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
-    <!--
-        MY COLOURS:
-        - LIGHT-BLUE: 8ecae6 | 142, 202, 230
-        - BLUE: 219ebc | 33, 158, 188
-        - DARK-BLUE: 023047 | 2, 48, 71
-        - YELLOW: ffb703 | 255, 183, 3
-        - ORANGE: fb8500 | 251, 133, 0
-
-        -->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
     <link href="~/Content/CSS/DropDown.css" rel="stylesheet" />
+    <link href="~/Content/CSS/HomeIndex.css" rel="stylesheet" />
 
-
-    @Scripts.Render("~/bundles/modernizr")
 
 
 </head>
@@ -106,5 +105,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
