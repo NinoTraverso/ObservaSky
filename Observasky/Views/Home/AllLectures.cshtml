@@ -7,8 +7,20 @@
 <ul>
     @foreach (var lecture in ViewBag.UpcomingLectures)
     {
-        <li>@lecture.Name - @lecture.DateTime</li>
-
+        <li class="container">
+            <div class="row pe-0">
+                <div class="col-12 col-sm-12 px-0 bx-0 mb-5 d-flex flex-sm-row flex-column" style="background-color: rgb(2, 48, 71); color: rgb(251, 133, 0);">
+                    <div class="px-0 mx-0">
+                        <img src="~/Content/Images/@lecture.Photo" alt="Event Image" width="400" height="250" style="object-fit: cover"/>
+                    </div>
+                    <div>
+                        <p width="400">@lecture.Name</p>
+                        <p width="400">@lecture.DateTime</p>
+                        <p class="text-danger fw-bold" width="400">Seats: @lecture.Seats</p>
+                    </div>
+                </div>
+            </div>
+        </li>
     }
 </ul>
 
@@ -16,6 +28,7 @@
 <ul>
     @foreach (var lecture in ViewBag.PastLectures)
     {
-        <li>@lecture.Name - @lecture.DateTime</li>
+        <li>@lecture.Name</li>
+        <li>@lecture.DateTime</li>
     }
 </ul>

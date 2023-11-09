@@ -26,11 +26,12 @@
                 {
                     <img src="~/Content/Images/@lecture.Photo" class="card-img" alt="@lecture.Name">
                 }
-                <div class="card-body">
-                    <h5 class="card-title">@lecture.Name</h5>
-                    <p class="card-text">Date and Time: @lecture.DateTime</p>
-                    <p class="card-text">Speakers: @lecture.Speakers</p>
-                </div>
+            <div class="card-body">
+                <h5 class="card-title">@lecture.Name</h5>
+                <p class="card-text">Date and Time: @lecture.DateTime</p>
+                <p class="card-text">Speakers: @lecture.Speakers</p>
+                <p class="card-text text-danger fw-bold">Seats: @lecture.Seats</p>
+            </div>
             </div>
         </div>
     }
