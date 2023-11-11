@@ -5,36 +5,90 @@
 
 <main id="HomeIndexMain">
 
-    <div style="color: rgb(255, 183, 3); ">
-        We strive to find our path in life, but we have always been driven to reaching the stars...
+
+    @*    ----------------------------------------- THIS SECTION IS FOR INTRO -------------------------------------      *@
+    <div>
+        <h4 class="text-light">
+            Embark on an astronomical odyssey with ObservaSky, your celestial companion in unraveling the mysteries of the cosmos. Immerse yourself
+            in the boundless wonders of the night sky as we bring the universe to your fingertips.
+        </h4>
     </div>
+
+    @*    ----------------------------------------- THIS SECTION IS FOR EVENTS -------------------------------------      *@
 
     <div class="container EventsContainer d-flex align-items-center">
         <div class="row">
             <div class="col-md-4" id="CarouselEvents">
-                <!-- Add content for Carousel here -->
             </div>
 
             <div class="col-md-8 d-flex flex-column align-content-center justify-content-center" id="SolarSystem">
-                <h5>Explore the Cosmos: Stay Informed on Upcoming Events!</h5>
-                <p>Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From meteor showers to eclipses, we've got your cosmic calendar covered.</p>
+                <h5 style="color: rgb(251, 133, 0); ">Explore the Cosmos: Stay Informed on Upcoming Events!</h5>
+                <p style="color: rgb(33, 158, 188);">Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From 
+                meteor showers to eclipses, we've got your cosmic calendar covered.</p>
 
-                <h5>Stay Tuned, Stay Amazed!</h5>
-                <p>Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.</p>
+                <h5 style="color: rgb(251, 133, 0);">Stay Tuned, Stay Amazed!</h5>
+                <p style="color: rgb(33, 158, 188); ">Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse 
+                yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.</p>
             </div>
         </div>
     </div>
 
+    @*    ----------------------------------------- THIS SECTION IS FOR GLOSSARY INFO -------------------------------------      *@
+
+<div>
+    <h4 class="text-light">Unlock the Language of the Stars</h4>
+
+    <p>
+        Journey through our comprehensive astronomy glossary, where the language of the cosmos comes to life. From nebulae to quasars, our glossary
+        is your guide to understanding the celestial ballet unfolding above.
+    </p>
+</div>
+
+    @*    ----------------------------------------- THIS SECTION IS FOR LECTURES INFO -------------------------------------      *@
+
+<div>
+    <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
+
+    <p>
+        Stay in sync with the cosmos through our events calendar, highlighting upcoming celestial phenomena. Join us for captivating lectures by
+        seasoned astronomers, shedding light on the secrets of the universe. From meteor showers to planetary alignments, we invite you to witness the
+        grandeur of the night sky.
+    </p>
+</div>
+
+    @*    ----------------------------------------- THIS SECTION IS FOR THE LECTURES -------------------------------------      *@
+
+    <div class="d-flex justify-content-center">
+        <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none" style="color: rgb(255, 183, 3);">
+            <h3>All Lectures</h3>
+        </a>
+    </div>
 
 
 
+    <div class="d-flex justify-content-center">
+        <div class="row">
+            <div id="PartialLectures" class="d-flex flex-column flex-lg-row justify-content-center"></div>
+        </div>
+    </div>
 
-    <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none" style="color: rgb(255, 183, 3);"><h3>All Lectures</h3></a>
+    @*    ----------------------------------------- THIS SECTION IS FOR ARTICLES INFO -------------------------------------      *@
+<div>
+    <h4 class="text-light">Cosmic Exploration Through Articles</h4>
 
-    <div id="PartialLectures" class="d-flex flex-row "></div>
+    <p>
+        Delve into our curated articles that traverse the vast reaches of space. Whether you're a stargazing enthusiast or an aspiring astronomer, our
+        content spans the breadth of astronomical wonders, making the cosmos both accessible and awe-inspiring.
+    </p>
+</div>
 
-
-
+    @*    ----------------------------------------- THIS SECTION IS FOR CONCLUSIONS -------------------------------------      *@
+<div>
+    <h4 class="text-light">
+        ObservaSky is where passion meets knowledge, inviting you to explore the depths of space and time. Join us on this cosmic journey as we
+        unveil the beauty and complexity of the universe above.
+    </h4>
+</div>
 </main>
 
 @section scripts {
