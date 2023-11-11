@@ -2,11 +2,15 @@
 
 nav {
     font-family: "Roboto Mono", monospace;
-    background: linear-gradient(to top, rgba(33, 158, 188, 0.5), rgba(33, 158, 188, 0));
+    /*background: linear-gradient(to top, rgba(33, 158, 188, 0.5), rgba(33, 158, 188, 0));*/
 }
 
 .nav-link {
     color: rgb(142, 202, 230);
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgb(255, 183, 3);
 }
 
 
@@ -22,18 +26,20 @@ nav {
 
 body {
     background-image: url('../Images/LayoutBackground3.jpg');
-    background-size: cover; /*cover instead of 100% 100%*/
+    background-size: cover;
 }
 
 #divFooter {
     width: 100%;
     color: rgb(255, 183, 3);
-    flex: 1;
+    margin: 0 auto;
+    text-align: center;
 }
+
 
 #footer {
     font-family: "Roboto Mono", monospace;
-    background: rgb(2, 48, 71);
+    background: rgba(2, 48, 71, 0.4);
     width: 100%;
 }
 

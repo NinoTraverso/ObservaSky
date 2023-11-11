@@ -4,19 +4,28 @@
 <h2>Upcoming Lectures</h2>
 
 <button>@Html.ActionLink("Book", "BookLecture", "Home", new { area = "" }, new { @class = "nav-link" })</button>
-<ul>
+
+
+<ul class="list-unstyled">
     @foreach (var lecture in ViewBag.UpcomingLectures)
     {
         <li class="container">
             <div class="row pe-0">
-                <div class="col-12 col-sm-12 px-0 bx-0 mb-5 d-flex flex-sm-row flex-column" style="background-color: rgb(2, 48, 71); color: rgb(251, 133, 0);">
-                    <div class="px-0 mx-0">
-                        <img src="~/Content/Images/@lecture.Photo" alt="Event Image" width="400" height="250" style="object-fit: cover"/>
-                    </div>
-                    <div>
-                        <p width="400">@lecture.Name</p>
-                        <p width="400">@lecture.DateTime</p>
-                        <p class="text-danger fw-bold" width="400">Seats: @lecture.Seats</p>
+                <div class="col-12 px-0 bx-0 mb-5">
+                    <div style="background-color: rgb(2, 48, 71); color: rgb(251, 133, 0);" class="d-sm-flex border border-primary border-opacity-25">
+                        <div class="px-0 mx-0 d-none d-sm-block">
+                            <img src="~/Content/Images/@lecture.Photo" alt="Event Image" class="img-fluid" style="object-fit: cover; width: 200px; height: 200px;" />
+                        </div>
+                        <div class="ps-3 pe-3 flex-grow-1 mt-3 mt-sm-0">
+                            <h4>@lecture.Name</h4>
+                            <p><span class="fw-bold">Date & Time: </span>@lecture.DateTime</p>
+                            <p><span class="fw-bold">Description: </span>@lecture.Description</p>
+                            <p><span class="fw-bold">Speakers: </span>@lecture.Speakers</p>
+                            <p class="text-danger fw-bold">Seats: @lecture.Seats</p>
+                        </div>
+                        <div class="px-0 mx-0 d-sm-none">
+                            <img src="~/Content/Images/@lecture.Photo" alt="Event Image" class="img-fluid " style="object-fit: cover; width: 100%;" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,11 +33,31 @@
     }
 </ul>
 
-<h2>Past Lectures</h2>
-<ul>
+<h2>Passed Lectures</h2>
+
+<ul class="list-unstyled">
     @foreach (var lecture in ViewBag.PastLectures)
     {
-        <li>@lecture.Name</li>
-        <li>@lecture.DateTime</li>
+        <li class="container">
+            <div class="row pe-0">
+                <div class="col-12 px-0 bx-0 mb-5">
+                    <div style="background-color: rgb(2, 48, 71); color: rgb(251, 133, 0);" class="d-sm-flex border border-primary border-opacity-25">
+                        <div class="px-0 mx-0 d-none d-sm-block">
+                            <img src="~/Content/Images/@lecture.Photo" alt="Event Image" class="img-fluid" style="object-fit: cover; width: 200px; height: 200px;" />
+                        </div>
+                        <div class="ps-3 pe-3 flex-grow-1 mt-3 mt-sm-0">
+                            <h4>@lecture.Name</h4>
+                            <p><span class="fw-bold">Date & Time: </span>@lecture.DateTime</p>
+                            <p><span class="fw-bold">Description: </span>@lecture.Description</p>
+                            <p><span class="fw-bold">Speakers: </span>@lecture.Speakers</p>
+                            <p class="text-danger fw-bold">Seats: @lecture.Seats</p>
+                        </div>
+                        <div class="px-0 mx-0 d-sm-none">
+                            <img src="~/Content/Images/@lecture.Photo" alt="Event Image" class="img-fluid " style="object-fit: cover; width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
     }
 </ul>

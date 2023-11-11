@@ -5,24 +5,31 @@
 
 <main id="HomeIndexMain">
 
-    <div>
-          We strive to find our path in life, but we have always been driven to reaching the stars...
+    <div style="color: rgb(255, 183, 3); ">
+        We strive to find our path in life, but we have always been driven to reaching the stars...
     </div>
 
-    <h1>Events</h1>
-    <div class="EventsContainer">
+    <div class="container EventsContainer d-flex align-items-center">
         <div class="row">
-            <div class="col-4" id="CarouselEvents"></div>
-            <div class="col-8" id="SolarSystem">
-                <div class="sun"></div>
-                <div class="earth">
-                    <div class="moon"></div>
-                </div>
+            <div class="col-md-4" id="CarouselEvents">
+                <!-- Add content for Carousel here -->
+            </div>
+
+            <div class="col-md-8 d-flex flex-column align-content-center justify-content-center" id="SolarSystem">
+                <h5>Explore the Cosmos: Stay Informed on Upcoming Events!</h5>
+                <p>Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From meteor showers to eclipses, we've got your cosmic calendar covered.</p>
+
+                <h5>Stay Tuned, Stay Amazed!</h5>
+                <p>Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.</p>
             </div>
         </div>
     </div>
 
-    <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none" style="color: rgb(33, 158, 188);"><h3>All Lectures</h3></a>
+
+
+
+
+    <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none" style="color: rgb(255, 183, 3);"><h3>All Lectures</h3></a>
 
     <div id="PartialLectures" class="d-flex flex-row "></div>
 
