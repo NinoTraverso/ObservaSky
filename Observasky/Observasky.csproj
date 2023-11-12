@@ -238,6 +238,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\CSS\Button.css" />
     <Content Include="Content\CSS\CarouselEvents.css" />
     <Content Include="Content\CSS\DropDown.css" />
     <Content Include="Content\CSS\HomeIndex.css" />

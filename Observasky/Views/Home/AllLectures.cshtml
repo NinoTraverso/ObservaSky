@@ -1,9 +1,11 @@
 ﻿@model Observasky.Models.Lectures
 
+<link href="~/Content/CSS/Button.css" rel="stylesheet" />
 
 <h2>Upcoming Lectures</h2>
 
-<button>@Html.ActionLink("Book", "BookLecture", "Home", new { area = "" }, new { @class = "nav-link" })</button>
+<a href="@Url.Action("BookLecture", "Home")" class="nav-link GeneralButton">Book</a>
+
 
 
 <ul class="list-unstyled">

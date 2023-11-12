@@ -29,17 +29,19 @@
 </head>
 <body class="mb-0 pb-0">
 
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
-        <div class="container ps-3 ms-0 bs-0">
-            <div class="logoContainer pe-3 " href="@Url.Action("Index", "Home")">
-                <img src="~/Content/Images/observasky-high-resolution-logo-transparent.png" alt="Observasky" />
-            </div>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-md">
 
+        <div class="logoContainer ps-3 pe-3 mx-auto">
+            <img src="~/Content/Images/observasky-high-resolution-logo-transparent.png" alt="Observasky" />
+        </div>
+
+        <div class="container ps-3 ">
             @Html.ActionLink("ObservaSky", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: rgb(142, 202, 230);" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Attiva/Disattiva spostamento" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(33, 158, 188); border-color: rgb(142, 202, 230);">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
 
@@ -79,15 +81,17 @@
                     @if (User.IsInRole("Astronomer"))
                     {
                         <li class="dropdown rounded-container">
-                            <button class="dropbtn">Profile</button>
+                            <button class="dropbtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" style="fill: #fb8500;" class="px-2">
+                                    <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                                </svg>
+                            </button>
                             <div class="dropdown-content">
                                 <a href="@Url.Action("Profile", "Home", new { area = "" })">Details</a>
                                 <a href="@Url.Action("Logout", "Home", new { area = "" })">Sign Off</a>
                             </div>
                         </li>
                     }
-
-
                 </ul>
             </div>
         </div>

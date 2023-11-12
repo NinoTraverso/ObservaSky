@@ -2,6 +2,10 @@
 
 <link href="@Url.Content("~/Content/CSS/solarSystem.css")" rel="stylesheet" type="text/css" />
 
+<link href="~/Content/CSS/Button.css" rel="stylesheet" />
+
+<link href="@Url.Content("~/Content/CSS/solarSystem.css")" rel="stylesheet" type="text/css" />
+
 
 <main id="HomeIndexMain">
 
@@ -23,45 +27,62 @@
 
             <div class="col-md-8 d-flex flex-column align-content-center justify-content-center" id="SolarSystem">
                 <h5 style="color: rgb(251, 133, 0); ">Explore the Cosmos: Stay Informed on Upcoming Events!</h5>
-                <p style="color: rgb(33, 158, 188);">Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From 
-                meteor showers to eclipses, we've got your cosmic calendar covered.</p>
+                <p style="color: rgb(33, 158, 188);">
+                    Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From
+                    meteor showers to eclipses, we've got your cosmic calendar covered.
+                </p>
 
                 <h5 style="color: rgb(251, 133, 0);">Stay Tuned, Stay Amazed!</h5>
-                <p style="color: rgb(33, 158, 188); ">Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse 
-                yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.</p>
+                <p style="color: rgb(33, 158, 188); ">
+                    Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse
+                    yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.
+                </p>
             </div>
         </div>
     </div>
 
     @*    ----------------------------------------- THIS SECTION IS FOR GLOSSARY INFO -------------------------------------      *@
 
-<div>
-    <h4 class="text-light">Unlock the Language of the Stars</h4>
+    <div>
+        <h4 class="text-light">Unlock the Language of the Stars</h4>
 
-    <p>
-        Journey through our comprehensive astronomy glossary, where the language of the cosmos comes to life. From nebulae to quasars, our glossary
-        is your guide to understanding the celestial ballet unfolding above.
-    </p>
+        <p>
+            Journey through our comprehensive astronomy glossary, where the language of the cosmos comes to life. From nebulae to quasars, our glossary
+            is your guide to understanding the celestial ballet unfolding above.
+        </p>
+    </div>
+
+    @*    ----------------------------------------- THIS SECTION IS FOR SOLAR SYSTEM ANIMATION -------------------------------------      *@
+
+<div id="solarSystem">
+    <div id="sun"></div>
+    <div id="mercury" class="planet"></div>
+    <div id="venus" class="planet"></div>
+    <div id="earth" class="planet"></div>
+    <div id="mars" class="planet"></div>
+    <div id="jupiter" class="planet"></div>
+    <div id="saturn" class="planet"></div>
+    <div id="uranus" class="planet"></div>
+    <div id="neptune" class="planet"></div>
 </div>
+
 
     @*    ----------------------------------------- THIS SECTION IS FOR LECTURES INFO -------------------------------------      *@
 
-<div>
-    <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
+    <div>
+        <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
 
-    <p>
-        Stay in sync with the cosmos through our events calendar, highlighting upcoming celestial phenomena. Join us for captivating lectures by
-        seasoned astronomers, shedding light on the secrets of the universe. From meteor showers to planetary alignments, we invite you to witness the
-        grandeur of the night sky.
-    </p>
-</div>
+        <p>
+            Stay in sync with the cosmos through our events calendar, highlighting upcoming celestial phenomena. Join us for captivating lectures by
+            seasoned astronomers, shedding light on the secrets of the universe. From meteor showers to planetary alignments, we invite you to witness the
+            grandeur of the night sky.
+        </p>
+    </div>
 
     @*    ----------------------------------------- THIS SECTION IS FOR THE LECTURES -------------------------------------      *@
 
-    <div class="d-flex justify-content-center">
-        <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none" style="color: rgb(255, 183, 3);">
-            <h3>All Lectures</h3>
-        </a>
+    <div class="d-flex justify-content-center py-2">
+        <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none nav-link GeneralButton">All Lectures</a>
     </div>
 
 
@@ -73,22 +94,14 @@
     </div>
 
     @*    ----------------------------------------- THIS SECTION IS FOR ARTICLES INFO -------------------------------------      *@
-<div>
-    <h4 class="text-light">Cosmic Exploration Through Articles</h4>
+    <div>
+        <h4 class="text-light">Cosmic Exploration Through Articles</h4>
 
-    <p>
-        Delve into our curated articles that traverse the vast reaches of space. Whether you're a stargazing enthusiast or an aspiring astronomer, our
-        content spans the breadth of astronomical wonders, making the cosmos both accessible and awe-inspiring.
-    </p>
-</div>
-
-    @*    ----------------------------------------- THIS SECTION IS FOR CONCLUSIONS -------------------------------------      *@
-<div>
-    <h4 class="text-light">
-        ObservaSky is where passion meets knowledge, inviting you to explore the depths of space and time. Join us on this cosmic journey as we
-        unveil the beauty and complexity of the universe above.
-    </h4>
-</div>
+        <p>
+            Delve into our curated articles that traverse the vast reaches of space. Whether you're a stargazing enthusiast or an aspiring astronomer, our
+            content spans the breadth of astronomical wonders, making the cosmos both accessible and awe-inspiring.
+        </p>
+    </div>
 </main>
 
 @section scripts {
