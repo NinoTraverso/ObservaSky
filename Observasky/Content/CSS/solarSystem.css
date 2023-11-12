@@ -103,46 +103,55 @@
     width: 0.5vw;
     height: 0.5vw;
     animation: wiggle-mercury 3s ease-in-out infinite;
+    background-color: #d8d8d8; 
 }
 
 #venus {
     width: 1.2vw;
     height: 1.2vw;
     animation: wiggle-venus 2s ease-in-out infinite;
+    background-color: #e5aa70;
 }
 
 #earth {
     width: 1.3vw;
     height: 1.3vw;
     animation: wiggle-earth 1s ease-in-out infinite;
+    background-color: #4d79ff;
 }
 
 #mars {
     width: 0.7vw;
     height: 0.7vw;
     animation: wiggle-mars 5s ease-in-out infinite;
+    background-color: #ff6347; 
 }
 
 #jupiter {
     width: 14vw;
     height: 14vw;
     animation: wiggle-jupiter 10s ease-in-out infinite;
+    background-color: #ffcc66;
 }
 
 #saturn {
     width: 12vw;
     height: 12vw;
     animation: wiggle-saturn 8s ease-in-out infinite;
+    background-color: #f1d041; 
 }
 
 #uranus {
     width: 5vw;
     height: 5vw;
     animation: wiggle-uranus 12s ease-in-out infinite;
+    background-color: #aeeeee;
 }
 
 #neptune {
     width: 5vw;
     height: 5vw;
     animation: wiggle-neptune 11s ease-in-out infinite;
+    background-color: #3366ff;
 }
+
