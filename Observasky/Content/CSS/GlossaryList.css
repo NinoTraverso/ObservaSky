@@ -1,0 +1,41 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap");
+
+body {
+    font-family: "Roboto Mono", monospace;
+}
+
+#glossaryContainer {
+    background-color: rgba(2, 48, 71, 1) !important;
+}
+
+.glossary-item {
+    transition: background 0.7s linear;
+}
+
+.glossary-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-link.GeneralButton,
+.nav-link.GeneralButton:hover {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.nav-link.GeneralButton {
+    background-color: rgb(2, 48, 71);
+    color: rgb(251, 133, 0);
+}
+
+.nav-link.GeneralButton:hover {
+    border-radius: 0;
+    background-color: rgb(255, 183, 3);
+    color: rgb(2, 48, 71);
+}
+
+.form-control {
+    border-radius: 25px;
+}

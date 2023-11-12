@@ -4,6 +4,8 @@
     ViewBag.Title = "Glossary List";
 }
 
+<link href="~/Content/CSS/GlossaryList.css" rel="stylesheet" />
+
 <h2>Glossary</h2>
 
 @using (Html.BeginForm("GlossaryList", "Home", FormMethod.Get))
@@ -11,33 +13,40 @@
     <div class="input-group mb-3">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by term...">
         <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn nav-link GeneralButton ms-2" type="submit">Search</button>
         </div>
     </div>
 }
 
 @for (char c = 'A'; c <= 'Z'; c++)
 {
-    <a href="@Url.Action("GlossaryList", new { letter = c })">@c</a>
+    <a href="@Url.Action("GlossaryList", new { letter = c })" class="text-decoration-none" style="color: rgb(255, 183, 3);">@c</a>
+
 }
 
-<a href="@Url.Action("GlossaryList")">All</a>
+<a href="@Url.Action("GlossaryList")" class="text-decoration-none" style="color: rgb(251, 133, 0);">All</a>
 
-<table class="table table-bordered">
+
+<table id="glossaryContainer" class="rounded" width="100%" @*class="table table-bordered"*@>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th style="color: rgb(33, 158, 188); text-align: center;">Term</th>
+            <th style="color: rgb(142, 202, 230); text-align: center;">Description</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="glossary-item">
-                <td>@item.Name</td>
-                <td>@item.Description</td>
+            <tr class="glossary-item border-top">
+                <td style="color: rgb(251, 133, 0); text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 16px; padding-left: 16px;" >@item.Name</td>
+                <td style="color: rgb(255, 183, 3); padding-top: 10px; padding-bottom: 10px; padding-left: 16px;">@item.Description</td>
             </tr>
         }
     </tbody>
 </table>
+<br />
+<br />
+<br />
+<br />
+<br />
 
