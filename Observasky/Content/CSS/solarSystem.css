@@ -20,13 +20,14 @@
 
 @keyframes wiggle-earth {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) rotate(5deg);
     }
 }
+
 
 @keyframes wiggle-mars {
     0%, 100% {
@@ -54,7 +55,7 @@
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
 }
 
@@ -64,7 +65,7 @@
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-18px);
     }
 }
 
@@ -97,7 +98,20 @@
     height: 8vw;
     border-radius: 50%;
     background: #ffcc00;
+    animation: pulse 3s infinite;
 }
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgb(255, 97, 14);
+    }
+
+    100% {
+        box-shadow: 0 0 100px rgb(255, 97, 14);
+    }
+}
+
+
 
 #mercury {
     width: 0.5vw;
@@ -114,11 +128,37 @@
 }
 
 #earth {
+    position: relative;
     width: 1.3vw;
     height: 1.3vw;
     animation: wiggle-earth 1s ease-in-out infinite;
     background-color: #4d79ff;
 }
+
+    #earth::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0.4vw;
+        height: 0.4vw;
+        border-radius: 50%;
+        background-color: #fff;
+        animation: orbit-moon 2s linear infinite;
+    }
+
+
+@keyframes orbit-moon {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(1.5vw) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(1.5vw) rotate(-360deg);
+    }
+}
+
 
 #mars {
     width: 0.7vw;
@@ -128,30 +168,46 @@
 }
 
 #jupiter {
-    width: 14vw;
-    height: 14vw;
+    width: 12vw;
+    height: 12vw;
     animation: wiggle-jupiter 10s ease-in-out infinite;
-    background-color: #ffcc66;
+    background: linear-gradient(10deg, #A52A2A, #FFD700,#8B4513, #A52A2A);
 }
 
 #saturn {
-    width: 12vw;
-    height: 12vw;
+    position: relative;
+    width: 10vw;
+    height: 10vw;
+    margin-right: 20px;
+    margin-left: 20px;
     animation: wiggle-saturn 8s ease-in-out infinite;
-    background-color: #f1d041; 
+    background: linear-gradient(-20deg, #eba834, #a66e0d);
 }
 
+    #saturn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 14vw;
+        height: 14vw;
+        box-shadow: 0 0 0 5px inset, 0 0 0 10px #ffe1ab, 0 0 0 15px #d8ae6d, 0 0 0 20px #655f45, 0 0 0 25px #dbb57c, 0 0 0 30px #b89c72;
+        border-radius: 50%;
+    }
+
+
 #uranus {
-    width: 5vw;
-    height: 5vw;
+    width: 4vw;
+    height: 4vw;
     animation: wiggle-uranus 12s ease-in-out infinite;
     background-color: #aeeeee;
 }
 
 #neptune {
-    width: 5vw;
-    height: 5vw;
+    width: 4.5vw;
+    height: 4.5vw;
     animation: wiggle-neptune 11s ease-in-out infinite;
-    background-color: #3366ff;
+    background: linear-gradient(45deg, #3366ff, #3366ff, #4ecca3);
 }
 
