@@ -3,48 +3,116 @@
 @{
     ViewBag.Title = "Profile";
 }
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
 
-<h2>Details</h2>
+<style>
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
 
-<div>
-    <h4>Events</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+        border: none;
+        outline: none;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
 
-        <dd>
-            <img src="~/Content/Images/@Model.Photo" alt="Event Image" width="200" height="200" />
-        </dd>
+        .GeneralButton a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+    img.rounded {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 20px;
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+    .togglePasswordButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+        border: none;
+        outline: none;
+        border-radius: 5px;
+
+        cursor: pointer;
+    }
+
+        .togglePasswordButton:hover {
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
+
+<div class="d-flex flex-column justify-content-center alignt-items-center align-items-md-start w-75 mx-auto py-3 p-4" style="background-color: rgba(33, 158, 188, 0.7);">
+
+    <h2>My Profile</h2>
+
+    <div class="d-flex flex-column flex-md-row justify-content-center align-content-center">
+
+        <div class="ms-md-2">
+            <img src="~/Content/Images/@Model.Photo" alt="Event Image" class="rounded" />
+        </div>
+
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-column flex-md-row">
+                @Html.DisplayNameFor(model => model.Username)
+                @Html.DisplayFor(model => model.Username)
+            </div>
 
 
-    </dl>
+            <div class="d-flex flex-column flex-md-row">
+                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayFor(model => model.Email)
+            </div>
+
+
+            <div class="d-flex flex-column flex-md-row justify-content-start">
+
+
+                <button type="button" id="togglePassword" class="togglePasswordButton">
+                    <img src="~/Content/Images/Blue_eye_icon.png" style="max-width: 20px; max-height: 20px;" />
+                    Password
+                </button>
+
+                <span id="passwordField">*****</span>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="py-2">
+        @Html.ActionLink("Modify", "ModifyProfile", new { id = Model.IdUser }, new { @class = "GeneralButton" }) |
+        @Html.ActionLink("Delete", "DeleteProfile", null, new { @class = "GeneralButton" })
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Modify", "ModifyProfile", new { id = Model.IdUser }) |
-    @Html.ActionLink("Delete", "DeleteProfile")
-</p>
+<script>
+    const passwordField = document.getElementById("passwordField");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", function () {
+        if (passwordField.textContent === "*****") {
+            passwordField.textContent = "@Model.Password";
+        } else {
+            passwordField.textContent = "*****";
+        }
+    });
+</script>
+
 

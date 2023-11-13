@@ -39,7 +39,7 @@
 @using (Html.BeginForm("SubmitBooking", "Home", FormMethod.Post))
 {
 
-    <div class="d-flex flex-column justify-content-center align-items-center w-75 mx-auto py-3" style="background-color: rgba(33, 158, 188, 0.7);">
+    <div class="d-flex flex-column justify-content-center align-items-center w-75 mx-auto py-3 rounded" style="background-color: rgba(33, 158, 188, 0.7);">
         @Html.AntiForgeryToken()
 
         @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "rounded" })
