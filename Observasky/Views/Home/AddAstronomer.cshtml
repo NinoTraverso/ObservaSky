@@ -4,15 +4,43 @@
     ViewBag.Title = "AddAstronomer";
 }
 
-<h2>Create</h2>
+<link href="~/Content/CSS/Font.css" rel="stylesheet"/>
+
+<style>
+    button {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
 
 @using (Html.BeginForm("AddAstronomer", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-
+<div class="d-flex justify-content-center align-items-center w-75 mx-auto py-3" style="background-color: rgba(33, 158, 188, 0.7);">
     <div class="form-horizontal">
-        <h4>Register</h4>
-        <hr />
+
+        <h4 style="color: rgb(2, 48, 71); ">Register Astronomer</h4>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
@@ -26,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control rounded" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,15 +92,17 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Register" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-10 text-center pt-2">
+                <input type="submit" value="Register" class="btn GeneralButton" />
             </div>
         </div>
     </div>
+</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="d-flex justify-content-end pt-3">
+    @Html.ActionLink("Back to List", "Index", null, new { style = "text-decoration:none; color:rgb(251, 133, 0);" })
+
 </div>
 
 <script>

@@ -241,6 +241,7 @@
     <Content Include="Content\CSS\Button.css" />
     <Content Include="Content\CSS\CarouselEvents.css" />
     <Content Include="Content\CSS\DropDown.css" />
+    <Content Include="Content\CSS\Font.css" />
     <Content Include="Content\CSS\GlossaryList.css" />
     <Content Include="Content\CSS\HomeIndex.css" />
     <Content Include="Content\CSS\Info.css" />
