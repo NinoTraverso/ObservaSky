@@ -373,7 +373,7 @@ namespace Observasky.Controllers
                 var upcomingLectures = context.Lectures
                     .Where(lecture => lecture.DateTime.HasValue && lecture.DateTime > now)
                     .OrderBy(lecture => lecture.DateTime)
-                    .Take(3)
+                    .Take(5)
                     .ToList();
 
                 return PartialView("_ShowLectures", upcomingLectures);
@@ -424,6 +424,45 @@ namespace Observasky.Controllers
             }
         }
 
+        /*
+         OLD SubmitBooking
+
+        [HttpPost]
+           public ActionResult SubmitBooking(Guests guest)
+           {
+               if (ModelState.IsValid)
+               {
+                   using (var dbContext = new ModelDbContext())
+                   {
+           
+                       var lecture = dbContext.Lectures.Find(guest.LectureID);
+           
+                       if (lecture != null)
+                       {
+           
+                           lecture.Seats -= guest.NumberOfGuests;
+           
+           
+                           if (lecture.Seats < 0)
+                           {
+                               lecture.Seats = 0; 
+                           }
+           
+           
+                           dbContext.Guests.Add(guest);
+                           dbContext.SaveChanges();
+           
+           
+                           return RedirectToAction("BookingSuccess", new { id = guest.IdBooking });
+                       }
+                   }
+               }
+           
+               return View("BookLecture", guest);
+           }
+         
+         
+         */
 
         [HttpPost]
         public ActionResult SubmitBooking(Guests guest)
@@ -432,32 +471,54 @@ namespace Observasky.Controllers
             {
                 using (var dbContext = new ModelDbContext())
                 {
-
                     var lecture = dbContext.Lectures.Find(guest.LectureID);
 
                     if (lecture != null)
                     {
 
-                        lecture.Seats -= guest.NumberOfGuests;
+                        int totalSeatsBookedByUserForCurrentLecture = dbContext.Guests
+                            .Where(g => g.Email == guest.Email && g.LectureID == guest.LectureID)
+                            .Sum(g => g.NumberOfGuests) ?? 0; 
 
+                        if (totalSeatsBookedByUserForCurrentLecture + guest.NumberOfGuests > 8)
+                        {
+                            ModelState.AddModelError("NumberOfGuests", "Cannot book more than a total of 8 seats for this lecture.");
+                            ViewBag.UpcomingLectures = new SelectList(dbContext.Lectures.Where(l => l.DateTime > DateTime.Now).ToList(), "IdLecture", "Name");
+                            return View("BookLecture", guest);
+                        }
+
+                        if (guest.NumberOfGuests > (lecture.Seats ?? 0)) 
+                        {
+                            ModelState.AddModelError("NumberOfGuests", "Cannot book more guests than available seats for this lecture.");
+                            ViewBag.UpcomingLectures = new SelectList(dbContext.Lectures.Where(l => l.DateTime > DateTime.Now).ToList(), "IdLecture", "Name");
+                            return View("BookLecture", guest);
+                        }
+
+                        lecture.Seats -= guest.NumberOfGuests;
 
                         if (lecture.Seats < 0)
                         {
-                            lecture.Seats = 0; 
+                            lecture.Seats = 0;
                         }
-
 
                         dbContext.Guests.Add(guest);
                         dbContext.SaveChanges();
-
 
                         return RedirectToAction("BookingSuccess", new { id = guest.IdBooking });
                     }
                 }
             }
 
+            using (var dbContext = new ModelDbContext())
+            {
+                ViewBag.UpcomingLectures = new SelectList(dbContext.Lectures.Where(l => l.DateTime > DateTime.Now).ToList(), "IdLecture", "Name");
+            }
+
             return View("BookLecture", guest);
         }
+
+
+
 
         public ActionResult BookingSuccess(int id)
         {

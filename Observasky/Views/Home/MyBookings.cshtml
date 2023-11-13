@@ -4,6 +4,39 @@
     ViewBag.Title = "My Bookings";
 }
 
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+        border: none;
+        outline: none;
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+
+        .GeneralButton a {
+            color: inherit;
+            text-decoration: none;
+        }
+</style>
+
+
+
 <h2>My Bookings</h2>
 
 @if (Model.Count > 0)
@@ -15,6 +48,7 @@
             <th>Email</th>
             <th>Lecture Name</th>
             <th>Date</th>
+            <th>Number of Seats</th>
             <th>Surname</th>
         </tr>
         @foreach (var booking in Model)
@@ -25,19 +59,22 @@
                 <td>@booking.Email</td>
                 <td>@booking.Lectures.Name</td>
                 <td>@booking.Lectures.DateTime</td>
+                <td>@booking.NumberOfGuests</td> <!-- Display the number of seats booked -->
                 <td>@booking.Surname</td>
                 <td>
                     @Html.ActionLink("Cancel", "ConfirmCancellation", new { id = booking.IdBooking })
                 </td>
             </tr>
         }
-
     </table>
 }
 else
 {
     <p>No bookings found.</p>
 }
+<div class="d-flex flex-row">
 
-<p>Make a new booking?</p>
-<button>@Html.ActionLink("All Lectures", "AllLectures", "Home", new { area = "" }, new { @class = "nav-link" })</button>
+    <h4 class="align-self-center">Make a new booking?</h4>
+    <button class="GeneralButton my-2 align-self-center mx-2">@Html.ActionLink("All Lectures", "AllLectures", "Home", new { area = "" }, new { @class = "text-decoration-none" })</button>
+
+</div>

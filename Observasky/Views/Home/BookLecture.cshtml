@@ -4,26 +4,61 @@
     ViewBag.Title = "BookLecture";
 }
 
-<h2>BookLecture</h2>
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    .GeneralButton {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
+
+<h2 class="text-center">Book A Lecture</h2>
+
 
 @using (Html.BeginForm("SubmitBooking", "Home", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
 
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
+    <div class="d-flex flex-column justify-content-center align-items-center w-75 mx-auto py-3" style="background-color: rgba(33, 158, 188, 0.7);">
+        @Html.AntiForgeryToken()
 
-    @Html.LabelFor(m => m.Surname)
-    @Html.TextBoxFor(m => m.Surname)
+        @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "rounded" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control rounded" })
 
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+        @Html.LabelFor(m => m.Surname, htmlAttributes: new { @class = "rounded" })
+        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control rounded" })
 
-    @Html.LabelFor(m => m.NumberOfGuests)
-    @Html.TextBoxFor(m => m.NumberOfGuests)
+        @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "rounded" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded" })
 
-    @Html.Label("Select a Lecture")
-    @Html.DropDownListFor(m => m.LectureID, ViewBag.UpcomingLectures as SelectList, "Select Lecture")
+        @Html.LabelFor(m => m.NumberOfGuests, htmlAttributes: new { @class = "rounded" })
+        @Html.TextBoxFor(m => m.NumberOfGuests, new { @class = "form-control rounded" })
 
-    <input type="submit" value="Submit">
+        @Html.Label("Select a Lecture", htmlAttributes: new { @class = "rounded" })
+        @Html.DropDownListFor(m => m.LectureID, ViewBag.UpcomingLectures as SelectList, "Select Lecture", new { @class = "form-control rounded" })
+
+
+        <input type="submit" value="Submit" class="GeneralButton mt-4">
+
+    </div>
 }
