@@ -245,6 +245,7 @@
     <Content Include="Content\CSS\HomeIndex.css" />
     <Content Include="Content\CSS\Info.css" />
     <Content Include="Content\CSS\Layout.css" />
+    <Content Include="Content\CSS\Login.css" />
     <Content Include="Content\CSS\solarSystem.css" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
     <Content Include="Content\Images\Geminids.jpg" />
