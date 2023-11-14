@@ -69,16 +69,16 @@
         </div>
 
         <div class="d-flex flex-column">
-            <div class="d-flex flex-column flex-md-row">
-                @Html.DisplayNameFor(model => model.Username)
+            <div class="d-flex flex-column flex-md-row pt-3">
+                <span class="label fw-bold " style="color: rgb(2, 48, 71);">Username: </span>
                 @Html.DisplayFor(model => model.Username)
             </div>
 
-
-            <div class="d-flex flex-column flex-md-row">
-                @Html.DisplayNameFor(model => model.Email)
+            <div class="d-flex flex-column flex-md-row py-3">
+                <span class="label fw-bold " style="color: rgb(2, 48, 71);">Email: </span>
                 @Html.DisplayFor(model => model.Email)
             </div>
+
 
 
             <div class="d-flex flex-column flex-md-row justify-content-start">
@@ -89,7 +89,7 @@
                     Password
                 </button>
 
-                <span id="passwordField">*****</span>
+                <span id="passwordField" class="ps-2">*****</span>
             </div>
 
 

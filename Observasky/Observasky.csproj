@@ -247,6 +247,7 @@
     <Content Include="Content\CSS\Info.css" />
     <Content Include="Content\CSS\Layout.css" />
     <Content Include="Content\CSS\Login.css" />
+    <Content Include="Content\CSS\ModifyProfile.css" />
     <Content Include="Content\CSS\Register.css" />
     <Content Include="Content\CSS\solarSystem.css" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
