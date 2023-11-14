@@ -4,40 +4,69 @@
     ViewBag.Title = "AllArticles";
 }
 
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    .article-container {
+        position: relative;
+        background: transparent;
+        transition: background 0.8s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+        .article-container:hover {
+            background: rgb(2, 48, 71);
+        }
+</style>
+
+
+
+
+
+
 <h2>All articles</h2>
 
 @foreach (var article in Model)
 {
     <a href="@Url.Action("FullArticle", new { id = article.IdArticle })" class="text-decoration-none text-light">
-        <div class="article-container">
-            <div class="d-flex flex-row">
-                <div>
-                    <div>
-                        <img src="~/Content/Images/@article.Photo" alt="Event Image" width="200" height="200" />
+        <div class="article-container py-2">
+            <div class="d-flex flex-column flex-md-row p-2">
+                <h3 class="d-block d-md-none" style="color: rgb(251, 133, 0);">
+                    @Html.DisplayFor(model => article.Title)
+                </h3>
+
+                    <div class="mt-2">
+                        <img src="~/Content/Images/@article.Photo" alt="Event Image" width="200" height="200" class="rounded mx-2 " />
                     </div>
-                </div>
+
                 <div class="d-flex flex-column">
-                    <h2>
+                    <h3 class="d-none d-md-block" style="color: rgb(251, 133, 0);">
                         @Html.DisplayFor(model => article.Title)
-                    </h2>
-                    <h5>
+                    </h3>
+                    <h6 class="pb-1 pt-2" >
                         @Html.DisplayFor(model => article.Introduction)
-                    </h5>
-                    <div class="d-flex flex-column mt-auto">
+                    </h6>
+                    <div class="d-flex flex-row mt-auto">
                         <div>
-                            <p>
-                                @Html.DisplayFor(model => article.Author)
-                            </p>
-                        </div>
-                        <div>
-                            <p>
+                            <p style="color: rgb(142, 202, 230);">
                                 @Html.DisplayFor(model => article.Date)
                             </p>
                         </div>
+
+                        <div>
+                            <p class="mx-2">
+                                |
+                            </p>
+                        </div>
+
+                        <div>
+                            <p style="color: rgb(142, 202, 230);">
+                                @Html.DisplayFor(model => article.Author)
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </a>
-        }
-
+}
