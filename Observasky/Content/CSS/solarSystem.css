@@ -170,6 +170,7 @@
 #jupiter {
     width: 12vw;
     height: 12vw;
+    margin-right: 30px;
     animation: wiggle-jupiter 10s ease-in-out infinite;
     background: linear-gradient(10deg, #A52A2A, #FFD700,#8B4513, #A52A2A);
 }
@@ -200,6 +201,7 @@
 #uranus {
     width: 4vw;
     height: 4vw;
+    margin-left: 30px;
     animation: wiggle-uranus 12s ease-in-out infinite;
     background-color: #aeeeee;
 }

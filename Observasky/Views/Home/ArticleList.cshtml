@@ -30,42 +30,45 @@
     <a href="@Url.Action("FullArticle", new { id = article.IdArticle })" class="text-decoration-none text-light">
         <div class="article-container py-2">
             <div class="d-flex flex-column flex-md-row p-2">
+
                 <h3 class="d-block d-md-none" style="color: rgb(251, 133, 0);">
                     @Html.DisplayFor(model => article.Title)
                 </h3>
-
+                
                     <div class="mt-2">
                         <img src="~/Content/Images/@article.Photo" alt="Event Image" width="200" height="200" class="rounded mx-2 " />
                     </div>
 
-                <div class="d-flex flex-column">
-                    <h3 class="d-none d-md-block" style="color: rgb(251, 133, 0);">
-                        @Html.DisplayFor(model => article.Title)
-                    </h3>
-                    <h6 class="pb-1 pt-2" >
-                        @Html.DisplayFor(model => article.Introduction)
-                    </h6>
-                    <div class="d-flex flex-row mt-auto">
-                        <div>
-                            <p style="color: rgb(142, 202, 230);">
-                                @Html.DisplayFor(model => article.Date)
-                            </p>
-                        </div>
+                    <div class="d-flex flex-column">
+                        <h3 class="d-none d-md-block" style="color: rgb(251, 133, 0);">
+                            @Html.DisplayFor(model => article.Title)
+                        </h3>
+                        <h6 class="pb-1 pt-2">
+                            @Html.DisplayFor(model => article.Introduction)
+                        </h6>
+                        
+                        <div class="d-flex flex-row">
+                            <div>
+                                <p style="color: rgb(142, 202, 230);">
+                                    @Html.DisplayFor(model => article.Date)
+                                </p>
+                            </div>
 
-                        <div>
-                            <p class="mx-2">
-                                |
-                            </p>
-                        </div>
+                            <div>
+                                <p class="mx-2">
+                                    |
+                                </p>
+                            </div>
 
-                        <div>
-                            <p style="color: rgb(142, 202, 230);">
-                                @Html.DisplayFor(model => article.Author)
-                            </p>
-                        </div>
 
+                            <div>
+                                <p style="color: rgb(142, 202, 230);">
+                                    @Html.DisplayFor(model => article.Author)
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </a>

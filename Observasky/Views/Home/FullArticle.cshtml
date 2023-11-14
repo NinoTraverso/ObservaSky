@@ -1,32 +1,38 @@
 ﻿@model Observasky.Models.Articles
 
-
-
 @{
     ViewBag.Title = "Full Article";
 }
 
-<div>
-    <h2>@Model.Title</h2>
-    <hr />
-    <div class="article-details">
-        <div id="cover">
-            <img src="~/Content/Images/@Model.Photo" alt="Event Image" width="600" height="400" style="object-fit: cover" />
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+<div class="d-flex flex-column justify-content-center mx-auto">
+
+    <h2 style="color: rgb(251, 133, 0);">@Model.Title</h2>
+
+    <div class="article-details justify-content-center">
+
+        <div id="cover" class="mb-2">
+            <img src="~/Content/Images/@Model.Photo" alt="Event Image" class="img-fluid" style="object-fit: cover; max-width: 100%; max-height: 400px;" />
         </div>
-        <h4>Introduction</h4>
-        <p>@Model.Introduction</p>
 
-        <h4>Main Content</h4>
-        <p>@Model.Main</p>
+        <h4 style="color: rgb(255, 183, 3);">Introduction</h4>
+        <p class="col-md-9">@Model.Introduction</p>
 
-        <h4>Conclusions</h4>
-        <p>@Model.Conclusions</p>
+        <h4 style="color: rgb(255, 183, 3);">Main Content</h4>
+        <p class="col-md-9">@Model.Main</p>
 
-        <h4>Author</h4>
-        <p>@Model.Author</p>
+        <h4 style="color: rgb(255, 183, 3);">Conclusions</h4>
+        <p class="col-md-9">@Model.Conclusions</p>
 
-        <h4>Date</h4>
-        <p>@Model.Date</p>
+        <hr />
+
+        <div class="d-flex flex-row">
+            <p style="color: rgb(142, 202, 230);">@(((DateTime)Model.Date).ToString("dd/MM/yyyy"))</p>
+            <p class="mx-2">|</p>
+            <p style="color: rgb(142, 202, 230);">@Model.Author</p>
+        </div>
+
     </div>
 </div>
+
 
