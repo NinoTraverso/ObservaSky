@@ -24,8 +24,8 @@ button {
     color: rgb(251, 133, 0);
 }
 
-    .GeneralButton:hover {
-        border-radius: 0;
-        background-color: rgb(255, 183, 3);
-        color: rgb(2, 48, 71);
-    }
+.GeneralButton:hover {
+    border-radius: 0;
+    background-color: rgb(255, 183, 3);
+    color: rgb(2, 48, 71);
+}

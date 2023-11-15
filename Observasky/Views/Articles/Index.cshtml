@@ -6,66 +6,126 @@
 
 <link href="~/Content/CSS/Font.css" rel="stylesheet" />
 
+<style>
+    button {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+    .GeneralButton:hover {
+        border-radius: 0;
+        background-color: rgb(255, 183, 3);
+        color: rgb(2, 48, 71);
+    }
+</style>
+
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn GeneralButton" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Introduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Main)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Conclusions)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Introduction)
-        </td>
-        <td>
-            <img src="~/Content/Images/@item.Photo" alt="Event Image" width="200" height="200" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Main)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Conclusions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdArticle }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdArticle }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdArticle })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Introduction)
+            </th>
+            <th class="d-none d-md-table-cell">
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th class="d-none d-lg-table-cell">
+                @Html.DisplayNameFor(model => model.Main)
+            </th>
+            <th class="d-none d-xl-table-cell">
+                @Html.DisplayNameFor(model => model.Conclusions)
+            </th>
+            <th class="d-none d-lg-table-cell">
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th class="d-none d-lg-table-cell">
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        var title = item.Title;
+                        if (title.Length > 200)
+                        {
+                            title = title.Substring(0, 200) + "...";
+                        }
+                        @Html.DisplayFor(modelItem => title)
+                    }
+                </td>
+                <td>
+                    @{
+                        var introduction = item.Introduction;
+                        if (introduction.Length > 200)
+                        {
+                            introduction = introduction.Substring(0, 200) + "...";
+                        }
+                        @Html.DisplayFor(modelItem => introduction)
+                    }
+                </td>
+                <td class="d-none d-md-table-cell">
+                    <img src="~/Content/Images/@item.Photo" alt="Event Image" width="200" height="200" />
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    @{
+                        var main = item.Main;
+                        if (main.Length > 200)
+                        {
+                            main = main.Substring(0, 200) + "...";
+                        }
+                        @Html.DisplayFor(modelItem => main)
+                    }
+                </td>
+                <td class="d-none d-xl-table-cell">
+                    @{
+                        var conclusions = item.Conclusions;
+                        if (conclusions.Length > 200)
+                        {
+                            conclusions = conclusions.Substring(0, 200) + "...";
+                        }
+                        @Html.DisplayFor(modelItem => conclusions)
+                    }
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td class="-d-flex flex-column ">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdArticle }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(2, 48, 71);" })
+                    @Html.ActionLink("Details", "Details", new { id = item.IdArticle }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(33, 158, 188);" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdArticle }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(255, 183, 3);" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

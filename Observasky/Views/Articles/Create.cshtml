@@ -7,110 +7,133 @@
 <link href="~/Content/CSS/Font.css" rel="stylesheet" />
 
 <style>
+    .custom-form {
+        width: 100%;
+        max-width: none;
+    }
+
     .textarea-resize {
+        width: 100%;
+        max-width: none;
         height: auto;
         resize: vertical;
         overflow: auto;
         word-wrap: break-word;
     }
 
+    button {
+        border: none;
+        outline: none;
+    }
 
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
 </style>
 
 
-<h2>Create</h2>
+<h2 style = "color: rgb(251, 133, 0);">New Article</h2>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+
+    @using (Html.BeginForm("Create", "Articles", FormMethod.Post, new { @class = "custom-form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.TextAreaFor(model => model.Title, new { @class = "form-control textarea-resize" })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
-@using (Html.BeginForm("Create", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" })) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Articles</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.TextAreaFor(model => model.Introduction, new { @class = "form-control textarea-resize" })
+                    @Html.ValidationMessageFor(model => model.Introduction, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-     <div class="form-group">
-         @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-         <div class="col-md-10">
-             @Html.TextAreaFor(model => model.Title, new { @class = "form-control textarea-resize" })
-             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-         </div>
-     </div>
+            <div class="form-group m-2  ms-0">
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2 text-light" })
+                <div class="col-md-10">
+                    <input type="file" name="Image" />
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Main, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.TextAreaFor(model => model.Main, new { @class = "form-control textarea-resize" })
+                    @Html.ValidationMessageFor(model => model.Main, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Conclusions, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.TextAreaFor(model => model.Conclusions, new { @class = "form-control textarea-resize" })
+                    @Html.ValidationMessageFor(model => model.Conclusions, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-12">
+                    @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Introduction, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Introduction, new { @class = "form-control textarea-resize" })
-            @Html.ValidationMessageFor(model => model.Introduction, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group m-2">
-        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2 text-light" })
-        <div class="col-md-10">
-            <input type="file" name="Image" />
-            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Main, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Main, new { @class = "form-control textarea-resize" })
-            @Html.ValidationMessageFor(model => model.Main, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @*
-                <div class="form-group">
-            @Html.LabelFor(model => model.Conclusions, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Conclusions, new { htmlAttributes = new { @class = "form-control " } })
-                @Html.ValidationMessageFor(model => model.Conclusions, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 py-2">
+                    <input type="submit" value="Create" class="btn GeneralButton " />
+                </div>
             </div>
         </div>
-
-
-    *@
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Conclusions, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Conclusions, new { @class = "form-control textarea-resize" })
-            @Html.ValidationMessageFor(model => model.Conclusions, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
+    }
 </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<hr/>
+
+<div class="d-flex justify-content-end">
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "text-decoration-none p-1 rounded-pill", style = "color: rgb(2, 48, 71); background-color: rgb(251, 133, 0);" })
 </div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
