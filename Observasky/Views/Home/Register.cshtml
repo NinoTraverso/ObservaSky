@@ -11,10 +11,14 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="d-flex justify-content-center align-items-center w-75 mx-auto py-3 rounded" style="background-color: rgba(33, 158, 188, 0.7);">
+    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center w-75 mx-auto mt-4 mb-3 rounded" style="background-color: rgba(33, 158, 188, 0.7);">
+
+        <div>
+            <img src="~/Content/Images/Astronaut suit-amico.png" alt="astronaut" style="max-width: 100%; height: auto;" />
+        </div>
         <div class="form-horizontal">
 
-            <h4 style="color: rgb(2, 48, 71); ">Register Astronomer</h4>
+            <h4 style="color: rgb(2, 48, 71); ">Sign Up</h4>
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -67,7 +71,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10 text-center pt-2">
+                <div class="col-md-offset-2 col-md-10 text-center pt-2 pb-3">
                     <input type="submit" value="Register" class="btn GeneralButton" />
                 </div>
             </div>

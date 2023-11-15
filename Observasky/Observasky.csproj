@@ -250,6 +250,7 @@
     <Content Include="Content\CSS\ModifyProfile.css" />
     <Content Include="Content\CSS\Register.css" />
     <Content Include="Content\CSS\solarSystem.css" />
+    <Content Include="Content\Images\Astronaut suit-amico.png" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
     <Content Include="Content\Images\Geminids.jpg" />
     <Content Include="Content\Images\LayoutBackground.jpg" />
