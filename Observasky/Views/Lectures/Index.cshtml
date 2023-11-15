@@ -4,66 +4,101 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    button {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
+
+<h3 style="color: rgb(251, 133, 0);">Lectures List</h3>
+
+<hr/>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Lecture", "Create", null, new { @class = "btn GeneralButton" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Speakers)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <img src="~/Content/Images/@item.Photo" alt="Event Image" width="80" height="80" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Speakers)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdLecture }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdLecture }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdLecture })
-        </td>
-    </tr>
-}
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th class="d-none d-lg-table-cell">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th class="d-none d-lg-table-cell">
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th class="d-none d-md-table-cell">
+                @Html.DisplayNameFor(model => model.Seats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speakers)
+            </th>
+            <th class="d-none d-md-table-cell">
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTime)
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    <img src="~/Content/Images/@item.Photo" alt="Event Image" width="80" height="80" />
+                </td>
+                <td class="d-none d-md-table-cell">
+                    @Html.DisplayFor(modelItem => item.Seats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speakers)
+                </td>
+                <td class="d-none d-md-table-cell">
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td class="-d-flex flex-column ps-0">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdLecture }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(2, 48, 71);" })
+                    @Html.ActionLink("Details", "Details", new { id = item.IdLecture }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(33, 158, 188);" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdLecture }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(255, 183, 3);" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

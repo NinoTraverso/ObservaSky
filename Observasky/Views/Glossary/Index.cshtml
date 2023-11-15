@@ -4,36 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    button {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
+
+<h3 style="color: rgb(251, 133, 0);">Glossary List</h3>
+
+<hr/>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Item", "Create", null, new { @class = "btn GeneralButton" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdGlossary }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdGlossary }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdGlossary })
-        </td>
-    </tr>
-}
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="-d-flex flex-column ">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdGlossary }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(2, 48, 71);" })
+                    @Html.ActionLink("Details", "Details", new { id = item.IdGlossary }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(33, 158, 188);" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdGlossary }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(255, 183, 3);" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

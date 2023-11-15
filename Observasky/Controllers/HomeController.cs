@@ -354,7 +354,7 @@ namespace Observasky.Controllers
                 var upcomingEvents = context.Events
                     .Where(e => e.Date.HasValue && e.Date > now)
                     .OrderBy(e => e.Date)
-                    .Take(3)
+                    .Take(5)
                     .ToList();
 
                 return PartialView("_CarouselEvents", upcomingEvents);
@@ -373,7 +373,7 @@ namespace Observasky.Controllers
                 var upcomingLectures = context.Lectures
                     .Where(lecture => lecture.DateTime.HasValue && lecture.DateTime > now)
                     .OrderBy(lecture => lecture.DateTime)
-                    .Take(5)
+                    .Take(3)
                     .ToList();
 
                 return PartialView("_ShowLectures", upcomingLectures);
