@@ -29,9 +29,17 @@
 </head>
 <body class="mb-0 pb-0">
 
-    <nav class="navbar navbar-expand-sm navbar-toggleable-md">
+    
+        <div class="logoContainer col-12 ps-3 pe-3 mx-auto d-none d-sm-block d-md-none ">
+            <img src="~/Content/Images/observasky-high-resolution-logo-transparent.png" alt="Observasky" />
+        </div>
+    
 
-        <div class="logoContainer ps-3 pe-3 mx-auto">
+    <nav class="navbar navbar-expand-md navbar-toggleable-md">
+
+
+
+        <div class="logoContainer ps-3 pe-3 mx-auto d-block d-sm-none d-md-block">
             <img src="~/Content/Images/observasky-high-resolution-logo-transparent.png" alt="Observasky" />
         </div>
 
@@ -42,7 +50,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+            <div class="collapse navbar-collapse d-md-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
 
                     @if (!User.Identity.IsAuthenticated)
