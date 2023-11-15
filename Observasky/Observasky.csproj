@@ -259,6 +259,7 @@
     <Content Include="Content\Images\Leonids.jpg" />
     <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
+    <Content Include="Content\Images\Telescope-bro.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
