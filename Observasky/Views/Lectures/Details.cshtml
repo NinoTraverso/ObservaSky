@@ -4,14 +4,58 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<link href="~/Content/CSS/Font.css" rel="stylesheet" />
+
+<style>
+    .custom-form {
+        width: 100%;
+        max-width: none;
+    }
+
+    .textarea-resize {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        resize: vertical;
+        overflow: auto;
+        word-wrap: break-word;
+    }
+
+    button {
+        border: none;
+        outline: none;
+    }
+
+    .GeneralButton,
+    .GeneralButton:hover {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: border-radius 0.3s, background-color 0.3s, color 0.3s;
+    }
+
+    .GeneralButton {
+        background-color: rgb(2, 48, 71);
+        color: rgb(251, 133, 0);
+    }
+
+        .GeneralButton:hover {
+            border-radius: 0;
+            background-color: rgb(255, 183, 3);
+            color: rgb(2, 48, 71);
+        }
+</style>
+
+<h3 style = "color: rgb(251, 133, 0);">Lecture Details</h3>
+
+<hr/>
 
 <div>
-    <h4>Lectures</h4>
-    <hr />
+
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Name)</span>
         </dt>
 
         <dd>
@@ -19,7 +63,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.DateTime)</span>
         </dt>
 
         <dd>
@@ -27,7 +71,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Description)</span>
         </dt>
 
         <dd>
@@ -35,7 +79,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Photo)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Photo)</span>
         </dt>
 
         <dd>
@@ -43,7 +87,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Seats)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Seats)</span>
         </dt>
 
         <dd>
@@ -51,7 +95,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Speakers)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Speakers)</span>
         </dt>
 
         <dd>
@@ -59,7 +103,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Topic)
+            <span class="fs-5" style="color: rgb(255, 183, 3);">@Html.DisplayNameFor(model => model.Topic)</span>
         </dt>
 
         <dd>
@@ -69,6 +113,12 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLecture }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLecture }, new { @class = "btn GeneralButton" })
+
+
+    <hr />
+
+    <div class="d-flex justify-content-end">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "text-decoration-none p-1 rounded-pill", style = "color: rgb(2, 48, 71); background-color: rgb(251, 133, 0);" })
+    </div>
 </p>
