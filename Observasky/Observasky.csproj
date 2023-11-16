@@ -258,14 +258,12 @@
     <Content Include="Content\Images\conference-lecture-svgrepo-com.svg" />
     <Content Include="Content\Images\Geminids.jpg" />
     <Content Include="Content\Images\LayoutBackground.jpg" />
-    <Content Include="Content\Images\LayoutBackground2.jpg" />
-    <Content Include="Content\Images\LayoutBackground3.jpg" />
     <Content Include="Content\Images\Leonids.jpg" />
     <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
-    <Content Include="Content\Images\Outer space.gif" />
     <Content Include="Content\Images\solar-system-orbit-svgrepo-com.svg" />
     <Content Include="Content\Images\space-svgrepo-com.svg" />
+    <Content Include="Content\Images\Telescope-bro.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
