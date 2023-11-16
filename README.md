@@ -1,6 +1,6 @@
 # 🌌 Astronomical Observatory App
 
-Welcome to the Astronomical Observatory App, a feature-rich platform designed for stargazers and astronomers to explore the wonders of the universe! This ASP.NET MVC application serves as a digital hub for our hypothetical observatory, offering various features to enhance your astronomical experience.
+Welcome to ObservaSky, a feature-rich platform designed for stargazers and astronomers to explore the wonders of the universe! This ASP.NET MVC application serves as a digital hub for a hypothetical observatory, offering various features to enhance the astronomical experience.
 
 ## Table of Contents
 - [Features](#features)
