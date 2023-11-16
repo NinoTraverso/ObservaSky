@@ -37,32 +37,35 @@
 
 
 
-<h2>My Bookings</h2>
+<h3 style="color: rgb(251, 133, 0);">My Bookings</h3>
 
 @if (Model.Count > 0)
 {
     <table class="table">
         <tr>
             <th>Booking ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th class="d-none d-xl-table-cell">Name</th>
+            <th class="d-none d-xl-table-cell">Surname</th>
+            <th class="d-none d-md-table-cell">Email</th>
             <th>Lecture Name</th>
             <th>Date</th>
             <th>Number of Seats</th>
-            <th>Surname</th>
+
+            <th>Cancel?</th>
         </tr>
         @foreach (var booking in Model)
         {
             <tr>
                 <td>@booking.IdBooking</td>
-                <td>@booking.Name</td>
-                <td>@booking.Email</td>
+                <td class="d-none d-xl-table-cell">@booking.Name</td>
+                <td class="d-none d-xl-table-cell">@booking.Surname</td>
+                <td class="d-none d-md-table-cell">@booking.Email</td>
                 <td>@booking.Lectures.Name</td>
                 <td>@booking.Lectures.DateTime</td>
                 <td>@booking.NumberOfGuests</td> <!-- Display the number of seats booked -->
-                <td>@booking.Surname</td>
+
                 <td>
-                    @Html.ActionLink("Cancel", "ConfirmCancellation", new { id = booking.IdBooking })
+                    @Html.ActionLink("Cancel", "ConfirmCancellation", new { id = booking.IdBooking }, new { @class = "btn rounded my-1", style = "color: ghostwhite; background-color: rgb(255, 183, 3);" })
                 </td>
             </tr>
         }
