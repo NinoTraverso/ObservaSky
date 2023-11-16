@@ -21,15 +21,15 @@
     foreach (var lecture in Model)
     {
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-4 mx-2">
-            <div class="card">
+            <div class="card" style="background-color: rgb(2, 48, 71); color: ghostwhite;">
                 @if (!string.IsNullOrEmpty(lecture.Photo))
                 {
                     <img src="~/Content/Images/@lecture.Photo" class="card-img" alt="@lecture.Name">
                 }
             <div class="card-body">
-                <h5 class="card-title">@lecture.Name</h5>
-                <p class="card-text">Date and Time: @lecture.DateTime</p>
-                <p class="card-text">Speakers: @lecture.Speakers</p>
+                <h5 class="card-title" style="color: rgb(251, 133, 0);">@lecture.Name</h5>
+                <p class="card-text">Date and Time: <span style="color: rgb(33, 158, 188);">@lecture.DateTime</span></p>
+                <p class="card-text">Speakers: <span style="color: rgb(33, 158, 188);">@lecture.Speakers</span></p>
                 <p class="card-text text-danger fw-bold">Seats: @lecture.Seats</p>
             </div>
             </div>
