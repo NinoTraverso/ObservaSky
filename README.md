@@ -8,6 +8,7 @@ Welcome to ObservaSky, a feature-rich platform designed for stargazers and astro
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
 - [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 
@@ -64,6 +65,15 @@ Under the following terms:
 - **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
 [Read the full license text](LICENSE.md).
+
+## Acknowledgments
+
+We would like to express our gratitude to the following individuals and projects that have contributed to or inspired this observatory app:
+
+- [RawPixel](https://www.rawpixel.com/)
+- [Storyset](https://storyset.com/)
+- [SVGrepo](https://www.svgrepo.com/)
+
 
 
 Happy stargazing! 🌠
