@@ -28,7 +28,27 @@ main {
 
 .spinning-image {
     display: inline-block;
-    animation: spin 4s linear infinite;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes enlarge {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.enlarge-image {
+
+    display: inline-block;
+    animation: enlarge 8s linear infinite;
 }
 
 

@@ -11,37 +11,55 @@
 
 
     @*    ----------------------------------------- THIS SECTION IS FOR INTRO -------------------------------------      *@
-    <div>
-        <h4 class="text-light mt-3 text-center">
+
+
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-center mb-5 mt-5">
+
+        <div class=" spinning-image col-12 col-md-4 d-none d-sm-none d-md-flex justify-content-center align-items-center me-3">
+            <img src="~/Content/Images/solar-system-orbit-svgrepo-com.svg" alt="svgEvents" style="max-width: 240px; height: auto;" />
+        </div>
+
+
+        <h4 class="col-12 col-md-8 text-light mt-3 text-center">
             Embark on an astronomical odyssey with ObservaSky, your celestial companion in unraveling the mysteries of the cosmos. Immerse yourself
             in the boundless wonders of the night sky as we bring the universe to your fingertips.
         </h4>
+
+        <div class="spinning-image col-12 col-md-4 d-bock d-md-none d-flex justify-content-center align-items-center mt-4">
+            <img src="~/Content/Images/solar-system-orbit-svgrepo-com.svg" alt="svgEvents" style="max-width: 240px; height: auto;" />
+        </div>
+
+
+
     </div>
 
 
-    <div class="spinning-image d-flex justify-content-center align-content-center my-5">
-        <img src="~/Content/Images/comet-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
-    </div>
+
 
     @*    ----------------------------------------- THIS SECTION IS FOR EVENTS -------------------------------------      *@
 
-    <div class="container EventsContainer d-flex align-items-center">
+    <div class="container EventsContainer d-flex align-items-center mt-5">
         <div class="row d-flex flex-column flex-lg-row align-items-center">
 
 
 
             <div class="col-12 col-lg-6 d-flex flex-column align-content-center justify-content-center" id="SolarSystem">
-                <h5 style="color: rgb(251, 133, 0); ">Explore the Cosmos: Stay Informed on Upcoming Events!</h5>
-                <p style="color: rgb(33, 158, 188);">
-                    Hello stargazers! At ObservaSky, we keep you in the loop about upcoming celestial events. From
-                    meteor showers to eclipses, we've got your cosmic calendar covered.
+
+
+                <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
+                    <div class="d-flex justify-content-center align-items-center me-2">
+                        <img src="~/Content/Images/comet-svgrepo-com.svg" alt="svgEvents" style="max-width: 60px; height: auto;" />
+                    </div>
+
+                    <h4 class="text-light">Stay Informed on Upcoming Events!</h4>
+                </div>
+
+                <p class="d-flex justify-content-start">
+                    At ObservaSky, we keep you in the loop about upcoming celestial events. From
+                    meteor showers to eclipses, we've got your cosmic calendar covered. Be part of the cosmic spectacle. Receive timely updates, mark your calendar,
+                    and immerse yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.
                 </p>
 
-                <h5 style="color: rgb(251, 133, 0);">Stay Tuned, Stay Amazed!</h5>
-                <p style="color: rgb(33, 158, 188); ">
-                    Be part of the cosmic spectacle. Receive timely updates, mark your calendar, and immerse
-                    yourself in the wonders of the universe. It's your invitation to explore, experience, and enjoy the celestial shows.
-                </p>
             </div>
 
             <div class="col-12 col-lg-6" id="CarouselEvents"></div>
@@ -56,7 +74,7 @@
     <div class="mt-4">
         <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
             <div class="d-flex justify-content-center align-items-center me-2">
-                <img src="~/Content/Images/article-astronomy-book-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+                <img src="~/Content/Images/book-closed-svgrepo-com (1).svg" alt="svgGlossary" style="max-width: 60px; height: auto;" />
             </div>
 
             <h4 class="text-light">Unlock the Language of the Stars</h4>
@@ -92,7 +110,7 @@
     <div class="mt-4">
         <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
             <div class="d-flex justify-content-center align-items-center me-2">
-                <img src="~/Content/Images/conference-lecture-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+                <img src="~/Content/Images/conference-lecture-svgrepo-com.svg" alt="svgLectures" style="max-width: 60px; height: auto;" />
             </div>
 
             <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
@@ -124,10 +142,10 @@
 
     @*    ----------------------------------------- THIS SECTION IS FOR ARTICLES INFO -------------------------------------      *@
 
-    <div class="mt-4">
+    <div class="mt-4 mb-5">
         <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
             <div class="d-flex justify-content-center align-items-center me-2">
-                <img src="~/Content/Images/article-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+                <img src="~/Content/Images/article-svgrepo-com.svg" alt="svgArticles" style="max-width: 60px; height: auto;" />
             </div>
 
             <h4 class="text-light">Cosmic Exploration Through Articles</h4>
@@ -137,6 +155,28 @@
             Delve into our curated articles that traverse the vast reaches of space. Whether you're a stargazing enthusiast or an aspiring astronomer, our
             content spans the breadth of astronomical wonders, making the cosmos both accessible and awe-inspiring.
         </p>
+    </div>
+
+    @*    ----------------------------------------- THIS SECTION THE END OF THE MAIN PAGE -------------------------------------      *@
+
+    <div class="d-flex flex-column flex-md-row justify-content-start align-items-center mt-5">
+
+        <div class="enlarge-image col-12 col-md-3 d-none d-sm-none d-md-flex justify-content-center align-items-center me-3">
+            <img src="~/Content/Images/space-svgrepo-com.svg" alt="svgEvents" style="max-width: 240px; height: auto;" />
+        </div>
+
+
+        <h4 class="col-12 col-md-9 text-light mt-3 text-center">
+            Embark on an astronomical odyssey with ObservaSky, your celestial companion in unraveling the mysteries of the cosmos. Immerse yourself
+            in the boundless wonders of the night sky as we bring the universe to your fingertips.
+        </h4>
+
+        <div class="enlarge-image col-12 col-md-4 d-bock d-md-none d-flex justify-content-center align-items-center mt-4">
+            <img src="~/Content/Images/space-svgrepo-com.svg" alt="svgPageEnd" style="max-width: 240px; height: auto;" />
+        </div>
+
+
+
     </div>
 
 </main>

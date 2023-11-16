@@ -250,10 +250,10 @@
     <Content Include="Content\CSS\ModifyProfile.css" />
     <Content Include="Content\CSS\Register.css" />
     <Content Include="Content\CSS\solarSystem.css" />
-    <Content Include="Content\Images\article-astronomy-book-svgrepo-com.svg" />
     <Content Include="Content\Images\article-svgrepo-com.svg" />
     <Content Include="Content\Images\Astronaut suit-amico.png" />
     <Content Include="Content\Images\Blue_eye_icon.png" />
+    <Content Include="Content\Images\book-closed-svgrepo-com %281%29.svg" />
     <Content Include="Content\Images\comet-svgrepo-com.svg" />
     <Content Include="Content\Images\conference-lecture-svgrepo-com.svg" />
     <Content Include="Content\Images\Geminids.jpg" />
@@ -263,7 +263,9 @@
     <Content Include="Content\Images\Leonids.jpg" />
     <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
-    <Content Include="Content\Images\Telescope-bro.png" />
+    <Content Include="Content\Images\Outer space.gif" />
+    <Content Include="Content\Images\solar-system-orbit-svgrepo-com.svg" />
+    <Content Include="Content\Images\space-svgrepo-com.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
