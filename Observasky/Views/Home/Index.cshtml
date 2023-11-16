@@ -12,13 +12,16 @@
 
     @*    ----------------------------------------- THIS SECTION IS FOR INTRO -------------------------------------      *@
     <div>
-        <h4 class="text-light mt-3">
+        <h4 class="text-light mt-3 text-center">
             Embark on an astronomical odyssey with ObservaSky, your celestial companion in unraveling the mysteries of the cosmos. Immerse yourself
             in the boundless wonders of the night sky as we bring the universe to your fingertips.
         </h4>
     </div>
 
-    <hr />
+
+    <div class="spinning-image d-flex justify-content-center align-content-center my-5">
+        <img src="~/Content/Images/comet-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+    </div>
 
     @*    ----------------------------------------- THIS SECTION IS FOR EVENTS -------------------------------------      *@
 
@@ -46,14 +49,22 @@
         </div>
     </div>
 
-    <hr />
+
 
     @*    ----------------------------------------- THIS SECTION IS FOR GLOSSARY INFO -------------------------------------      *@
 
-    <div>
-        <h4 class="text-light">Unlock the Language of the Stars</h4>
+    <div class="mt-4">
+        <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
+            <div class="d-flex justify-content-center align-items-center me-2">
+                <img src="~/Content/Images/article-astronomy-book-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+            </div>
 
-        <p>
+            <h4 class="text-light">Unlock the Language of the Stars</h4>
+        </div>
+
+
+
+        <p class="d-flex justify-content-start">
             Journey through our comprehensive astronomy glossary, where the language of the cosmos comes to life. From nebulae to quasars, our glossary
             is your guide to understanding the celestial ballet unfolding above.
         </p>
@@ -73,45 +84,61 @@
         <div id="neptune" class="planet"></div>
     </div>
 
-    <hr />
+
 
     @*    ----------------------------------------- THIS SECTION IS FOR LECTURES INFO -------------------------------------      *@
 
-    <div>
-        <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
 
-        <p>
+    <div class="mt-4">
+        <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
+            <div class="d-flex justify-content-center align-items-center me-2">
+                <img src="~/Content/Images/conference-lecture-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+            </div>
+
+            <h4 class="text-light">Celestial Spectacles and Enlightening Lectures</h4>
+        </div>
+
+
+
+        <p class="d-flex justify-content-start">
             Stay in sync with the cosmos through our events calendar, highlighting upcoming celestial phenomena. Join us for captivating lectures by
             seasoned astronomers, shedding light on the secrets of the universe. From meteor showers to planetary alignments, we invite you to witness the
             grandeur of the night sky.
         </p>
     </div>
 
+
+
+
     @*    ----------------------------------------- THIS SECTION IS FOR THE LECTURES -------------------------------------      *@
 
-    <div class="d-flex justify-content-center py-2">
-        <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none nav-link GeneralButton">All Lectures</a>
-    </div>
-
-
-
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center ">
         <div class="row">
-            <div id="PartialLectures" class="d-flex flex-column flex-lg-row justify-content-center"></div>
+            <div id="PartialLectures" class="d-flex flex-column flex-lg-row justify-content-center mt-5"></div>
         </div>
     </div>
 
-    <hr />
+    <div class="d-flex justify-content-center py-2 mb-3">
+        <a href="@Url.Action("AllLectures", "Home", new { area = "" })" class="text-decoration-none nav-link GeneralButton">All Lectures</a>
+    </div>
 
     @*    ----------------------------------------- THIS SECTION IS FOR ARTICLES INFO -------------------------------------      *@
-    <div>
-        <h4 class="text-light">Cosmic Exploration Through Articles</h4>
 
-        <p>
+    <div class="mt-4">
+        <div class="d-flex flex-row flex-md-row justify-content-start align-items-center">
+            <div class="d-flex justify-content-center align-items-center me-2">
+                <img src="~/Content/Images/article-svgrepo-com.svg" alt="astronaut" style="max-width: 60px; height: auto;" />
+            </div>
+
+            <h4 class="text-light">Cosmic Exploration Through Articles</h4>
+        </div>
+
+        <p class="d-flex justify-content-start">
             Delve into our curated articles that traverse the vast reaches of space. Whether you're a stargazing enthusiast or an aspiring astronomer, our
             content spans the breadth of astronomical wonders, making the cosmos both accessible and awe-inspiring.
         </p>
     </div>
+
 </main>
 
 @section scripts {
