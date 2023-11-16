@@ -261,6 +261,7 @@
     <Content Include="Content\Images\Leonids.jpg" />
     <Content Include="Content\Images\MoonVenus.jpg" />
     <Content Include="Content\Images\observasky-high-resolution-logo-transparent.png" />
+    <Content Include="Content\Images\PolygonLuminary.svg" />
     <Content Include="Content\Images\solar-system-orbit-svgrepo-com.svg" />
     <Content Include="Content\Images\space-svgrepo-com.svg" />
     <Content Include="Content\Images\Telescope-bro.png" />
