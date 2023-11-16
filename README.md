@@ -7,7 +7,6 @@ Welcome to the Astronomical Observatory App, a feature-rich platform designed fo
 - [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
