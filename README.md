@@ -1,10 +1,9 @@
 # 🌌 Astronomical Observatory App
 
-Welcome to ObservaSky, a feature-rich platform designed for stargazers and astronomers to explore the wonders of the universe! This ASP.NET MVC application serves as a digital hub for a hypothetical observatory, offering various features to enhance the astronomical experience.
+Welcome to ObservaSky, a platform designed for stargazers who would like to read and be kept updated on upcoiming evenets, book lectures, read articles and explore the glossary. Astronomers working are the ones writing the articles, updating the event carousel, organizing lectures, enrich the glossary with terms, and managing the users! This ASP.NET MVC application serves as a digital hub for a hypothetical observatory, offering various features to enhance the astronomical experience.
 
 ## Table of Contents
 - [Features](#features)
-- [Installation](#installation)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
 - [License](#license)
@@ -19,29 +18,21 @@ Registered stargazers and astronomers can book hypothetical lectures organized b
 Explore a comprehensive glossary of astronomical terms to deepen your understanding of astronomy and space, it has a search feature and a filter by alphabet letter.
 
 ### 📰 Articles
-The articles have a set structure, designed to be written and managed by administrators (such as observatory employees).
+The articles have a set structure, designed to be written and managed by administrators (such as the hypthetical observatory employees).
 
 ### 📅 Event Carousel
-This is only found in the main section, it shows five of the closest event to the current day in order for people to keep updated with upcoming astronomical events (eclipses, comets, meteor showers...)
-
-## Installation
-
-To install and run the Astronomical Observatory App, follow these steps:
-
-1. Clone the repository.
-2. Open the solution in Visual Studio.
-3. Build and run the application.
+This is only found in the main section, it shows five events closest to the current day in order for people to keep updated with upcoming astronomical events (eclipses, comets, meteor showers...)
 
 ## Technologies Used
 
 - HTML
 - CSS
+- Bootstrap
 - JavaScript
 - C#
 - ASP.NET MVC
 - Entity Framework (Database-First)
 - jQuery
-
 - SQL
 
 ## Usage
@@ -68,7 +59,7 @@ Under the following terms:
 
 ## Acknowledgments
 
-We would like to express our gratitude to the following individuals and projects that have contributed to or inspired this observatory app:
+I would like to express gratitude to the following individuals and projects that have contributed to increase the visual quality of this project:
 
 - [RawPixel](https://www.rawpixel.com/)
 - [Storyset](https://storyset.com/)
