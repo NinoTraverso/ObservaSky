@@ -2,6 +2,8 @@
 
 Welcome to ObservaSky, a platform designed for stargazers who would like to read and be kept updated on upcoiming astronomy evenets, book astronomy related lectures, read articles and explore the astronomy glossary. Astronomers working are the ones writing the articles, updating the event carousel, organizing lectures, enrich the glossary with terms, and managing the users! This ASP.NET MVC application serves as a digital hub for a hypothetical observatory, offering various features to enhance the astronomical experience. This was my capstone project for my Full-Stack Developement course with EPICODE. 
 
+![Uploading ObservaSkyHomepage.png…]()
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
