@@ -5,7 +5,7 @@ Welcome to ObservaSky, a platform designed for stargazers who would like to read
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [License](#license)
+- [Copyright](#copyright)
 - [Acknowledgments](#acknowledgments)
 
 ## Features
@@ -34,9 +34,7 @@ This is only found in the main section, it shows five events closest to the curr
 - jQuery
 - SQL
 
-## License
-
-This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](LICENSE.md).
+## Copyright
 
 You are free to:
 
