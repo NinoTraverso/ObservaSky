@@ -37,7 +37,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderBy(g => g.Name))
         {
             <tr class="glossary-item border-top">
                 <td style="color: rgb(251, 133, 0); text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 16px; padding-left: 16px;">@item.Name</td>
