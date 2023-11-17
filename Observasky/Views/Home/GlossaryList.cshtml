@@ -12,7 +12,7 @@
 
 @using (Html.BeginForm("GlossaryList", "Home", FormMethod.Get))
 {
-    <div class="input-group mb-3">
+    <div class="input-group mb-4">
         <input type="text" name="searchQuery" class="form-control" placeholder="Search by term...">
         <div class="input-group-append">
             <button class="btn nav-link GeneralButton ms-2" type="submit" style="z-index: 0;">Search</button>
@@ -22,26 +22,26 @@
 
 @for (char c = 'A'; c <= 'Z'; c++)
 {
-    <a href="@Url.Action("GlossaryList", new { letter = c })" class="text-decoration-none" style="color: rgb(255, 183, 3);">@c</a>
+    <a href="@Url.Action("GlossaryList", new { letter = c })" class="text-decoration-none " style="color: rgb(255, 183, 3);">@c</a>
 
 }
 
 <a href="@Url.Action("GlossaryList")" class="text-decoration-none" style="color: rgb(251, 133, 0);">All</a>
 
 
-<table id="glossaryContainer" class="rounded" width="100%" @*class="table table-bordered"*@>
+<table id="glossaryContainer" class="rounded table-bordered my-3" width="100%">
     <thead>
         <tr>
-            <th style="color: rgb(33, 158, 188); text-align: center;">Term</th>
-            <th style="color: rgb(142, 202, 230); text-align: center;">Description</th>
+            <th style="color: rgb(251, 133, 0); text-align: center;" class="mt-4 mb-2"><h4 class="mt-3 mb-3">Term</h4></th>
+            <th style="color: rgb(255, 183, 3); text-align: center;" class="mt-4 mb-2"><h4 class="mt-3 mb-3">Description</h4></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.OrderBy(g => g.Name))
         {
             <tr class="glossary-item border-top">
-                <td style="color: rgb(251, 133, 0); text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 16px; padding-left: 16px;">@item.Name</td>
-                <td style="color: rgb(255, 183, 3); padding-top: 10px; padding-bottom: 10px; padding-left: 16px;">@item.Description</td>
+                <td style="color: ghostwhite; text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 16px; padding-left: 16px;">@item.Name</td>
+                <td style="color: rgb(142, 202, 230); padding-top: 10px; padding-bottom: 10px; padding-left: 16px;">@item.Description</td>
             </tr>
         }
     </tbody>
