@@ -5,7 +5,6 @@ Welcome to ObservaSky, a platform designed for stargazers who would like to read
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Usage](#usage)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
@@ -34,11 +33,6 @@ This is only found in the main section, it shows five events closest to the curr
 - Entity Framework (Database-First)
 - jQuery
 - SQL
-
-## Usage
-
-1. Access the app in your web browser at `http://localhost:port`.
-2. Explore lectures, the glossary, articles, and upcoming events!
 
 ## License
 
