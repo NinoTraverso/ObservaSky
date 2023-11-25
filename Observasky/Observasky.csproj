@@ -209,6 +209,10 @@
     <Compile Include="Migrations\202311081450410_EventImageChangedLength.designer.cs">
       <DependentUpon>202311081450410_EventImageChangedLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311251107384_AddedRequiredFieldsToUtenti.cs" />
+    <Compile Include="Migrations\202311251107384_AddedRequiredFieldsToUtenti.designer.cs">
+      <DependentUpon>202311251107384_AddedRequiredFieldsToUtenti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Articles.cs" />
     <Compile Include="Models\Events.cs" />
@@ -402,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311081450410_EventImageChangedLength.resx">
       <DependentUpon>202311081450410_EventImageChangedLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311251107384_AddedRequiredFieldsToUtenti.resx">
+      <DependentUpon>202311251107384_AddedRequiredFieldsToUtenti.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
