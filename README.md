@@ -4,6 +4,10 @@ Welcome to ObservaSky, a platform designed for stargazers who would like to read
 
 ![ObservaSkyHomepage](https://github.com/NinoTraverso/Observasky/assets/134203980/02b538ea-b2e2-422c-b17c-5a9d82825402)
 
+
+https://github.com/NinoTraverso/Observasky/assets/134203980/7baa2aba-94db-4d39-b478-3ea6369e9d1e
+
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
